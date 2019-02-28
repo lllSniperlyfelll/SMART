@@ -16,6 +16,8 @@ public String quote="";
 public String primary_key="";
 HttpSession session=null;
 Connection com=null;
+String img="";
+Float bmi;
 String emaill,first_name,last_name,gender,age,dob_day,dob_month,dob_year,height,weight;
 		
 %>
@@ -58,6 +60,10 @@ String quotes_array[]={"Always laugh when you can  it is cheap medicine.","Let f
 	        	weight=rss.getString("weight");
 	        	//System.out.println("Email and password fetched -> "+emaill+" -> " +passwordd);	
 	        }
+	        if(gender.equalsIgnoreCase("male"))
+	        	img="'"+"../image/user_logo.png"+"'";
+	        else
+	        	img="'"+"../image/female_user_logo.png"+"'";
 		}
 	    catch(Exception e)
 	    {
@@ -171,10 +177,10 @@ String quotes_array[]={"Always laugh when you can  it is cheap medicine.","Let f
 		<tr>
 			<td style="text-align: center;width: 400px">
 								<font class="w3-text-black w3-opacity-min w3-mobile w3-jumbo">BMI  </font><font class="w3-text-black w3-opacity-min w3-mobile w3-xxlarge"><% 
-								Float bmi;
+
 
 								bmi= (Float.parseFloat(weight)/Float.parseFloat(height) );
-								out.write(Float.toString( Math.round(bmi*100)/(float)100)); 
+								out.write(Float.toString(bmi));//Float.toString( Math.round(bmi*100)/(float)100)); 
 
 
 								%>kg/m<sup>2</sup></font>
@@ -182,7 +188,23 @@ String quotes_array[]={"Always laugh when you can  it is cheap medicine.","Let f
 					<font class="w3-text-gray w3-opacity-min w3-mobile w3-large">(Body mass Index)  </font><br><br>
 			</td>
 			<td style="text-align: left">
-				<font class="w3-text-black w3-opacity-min w3-mobile w3-xlarge" style="font-family: cursive;">You have a normal weight </font>
+				<font class="w3-text-black w3-opacity-min w3-mobile w3-xlarge" style="font-family: cursive;">
+
+					<%
+
+					bmi= (Float.parseFloat(weight)/Float.parseFloat(height) );
+					if(bmi<19)
+						out.write("Your BMI indicates you are Underweight");
+					else if(bmi>19 && bmi<24)
+						out.write("Congrat's Your BMI indicates you are Healthy");
+					else if(bmi>25 && bmi<30)
+						out.write("Your BMI indicates Overweight");
+					else if(bmi>30 && bmi<39)
+						out.write("Your BMI indicates Obesity");
+					else if(bmi>40)
+						out.write("Your BMI indicates Extreme Obesity");
+
+						%> </font>
 			</td>
 		</tr>
 		
@@ -199,7 +221,7 @@ String quotes_array[]={"Always laugh when you can  it is cheap medicine.","Let f
  		<tr>
  		<td >
  			<center><div class="w3-container  w3-mobile" style="background-color: transparent; ;width: 100%;height: 100%">
- 				<img src="../image/user_logo.png" class="w3-image w3-mobile" width="230" height="200">
+ 				<% out.write("<img src="+img+" class='w3-image w3-mobile' width='230' height='200'>"); %>
  			</div>
  			</center>
  			
@@ -228,8 +250,8 @@ String quotes_array[]={"Always laugh when you can  it is cheap medicine.","Let f
  			<br>
  			<br>
  			<a href="../index.html" style="text-decoration: none">
-	 			<center><div class="w3-mobile w3-card-4 w3-container w3-xxlarge  w3-btn w3-ripple w3-round-xlarge w3-light-blue" style="width: 50%;height:35px;">
-	 				<center><font class="w3-xlarge w3-mobile w3-text-white hover-class" style="font-family: alfa Slab One,cursive;">&#8592; Home</font></center>
+	 			<center><div class="w3-mobile w3-card-4 w3-container w3-xxlarge  w3-btn w3-ripple w3-round-large w3-light-blue" style="width: 50%;height:35px;">
+	 				<center><font class="w3-xlarge w3-mobile w3-text-white hover-class" style="font-family: alfa Slab One,cursive;">Home</font></center>
 	 			</div></center>
 	 		</a>
  		</td>
@@ -239,7 +261,7 @@ String quotes_array[]={"Always laugh when you can  it is cheap medicine.","Let f
  			<br>
  			<br>
  			 	<a href="about.html" style="text-decoration: none">
-	 			<center><div class=" w3-mobile w3-container w3-card-4 w3-xxlarge  w3-btn w3-ripple w3-round-xlarge w3-light-blue" style="width: 50%;height:35px;">
+	 			<center><div class=" w3-mobile w3-container w3-card-4 w3-xxlarge  w3-btn w3-ripple w3-round-large w3-light-blue" style="width: 50%;height:35px;">
 	 				<center><font class=" w3-mobile w3-xlarge w3-text-white hover-class" style="font-family: alfa Slab One,cursive;">About</font></center>
 	 			</div></center>
 	 		</a>
@@ -251,7 +273,7 @@ String quotes_array[]={"Always laugh when you can  it is cheap medicine.","Let f
  			<br>
  					 <center>
  					 <form action="http://localhost:8080/SMART/logout" action="GET">
- 					 	<input type="submit" name="submit" value="Logout" class="w3-text-white w3-mobile w3-container w3-xlarge w3-card-4  w3-btn  w3-ripple w3-round-xlarge w3-light-blue" style="border:0;width: 50%;height:35px;font-family: alfa Slab One,cursive;font-size: 20px">
+ 					 	<input type="submit" name="submit" value="Logout" class="w3-text-white w3-mobile w3-container w3-xlarge w3-card-4  w3-btn  w3-ripple w3-round-large w3-light-blue" style="border:0;width: 50%;height:35px;font-family: alfa Slab One,cursive;font-size: 20px">
 	 				</form>	
 	 				</center>
  		</td>
