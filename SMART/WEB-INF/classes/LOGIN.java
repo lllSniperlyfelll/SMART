@@ -13,13 +13,17 @@ public class LOGIN extends HttpServlet
 {
 	Connection con=null;
 	HttpSession session=null;
-	boolean sessionExists(String email,HttpServletRequest request)
+	/*boolean sessionExists(String email,HttpServletRequest request)
 	{
 		try
 		{
-		this.session=request.getSession(false);
+		this.session=request.getSession(true);
+		System.out.println(session.toString());
 		if(session==null)
+		{
+					System.out.println("Session is null");
 			return false;
+		}
 		else
 			{
 				if(request.getAttribute("email").equals(email))
@@ -32,9 +36,10 @@ public class LOGIN extends HttpServlet
 		{
 			System.out.println("From LOGIN->sessionExists : "+e);
 		}
+		System.out.println("Last false");
 		return false;
 
-	}
+	}*/
 
 	boolean checkPassword(String password,String email)throws SQLException
 	{
@@ -83,15 +88,37 @@ public class LOGIN extends HttpServlet
 					System.out.println(" email "+email);
 					System.out.println(" password "+password);
 					
+
 					if(checkPassword(password,email)==true)
 					{
-						System.out.println("Password ok ");
-						if(sessionExists(email,request)==false)
-						{
+						//System.out.println(" session "+request.getSession(false));
+						od.DB_CLOSER(this.con);
+						System.out.println("CLosed database");
+						this.session=request.getSession(false);
 
-							this.session=request.getSession();
+						if(this.session==null)
+						{	
+							System.out.println("not found session hence creating new ");
 							this.session.setAttribute("email",email);
 							response.sendRedirect("html/register_accept.html");
+						}
+						else
+						{
+							System.out.println("session is present hence replacing session -> "+this.session.toString());
+							if( this.session.getAttribute("email")==null || !(this.session.getAttribute("email").equals(email)))
+							{
+								System.out.println("setting replacement of new session ");
+								this.session.removeAttribute("email");
+								this.session.setAttribute("email",email);
+																response.sendRedirect("index.html");
+								
+
+							}
+							else
+							{
+								response.sendRedirect("index.html");
+							}
+
 						}
 					}	
 					else
