@@ -99,6 +99,7 @@ public class LOGIN extends HttpServlet
 						if(this.session==null)
 						{	
 							System.out.println("not found session hence creating new ");
+							this.session=request.getSession(true);
 							this.session.setAttribute("email",email);
 							response.sendRedirect("html/register_accept.html");
 						}
