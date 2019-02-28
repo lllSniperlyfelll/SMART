@@ -3,21 +3,70 @@
 <%@ page language="java" import="java.io.*"%>
 <%@ page language="java" import="java.util.*"%>
 <%@ page language="java" import="DatabaseConnector.OPENDATABASE"%>
+<%@ page language="java" import="javax.servlet.http.HttpSession"%>
+<%@ page language="java" import="java.sql.*"%>
+<%@ page language="java" import="javax.servlet.*"%>
+<%@ page language="java" import="javax.servlet.http.*"%>
+
 
 
 
 <%!
 public String quote="";
-
+public String primary_key="";
+HttpSession session=null;
+Connection com=null;
+String emaill,first_name,last_name,gender,age,dob_day,dob_month,dob_year,height,weight;
 		
 %>
 
 
 <%
-String quotes_array[]={"Always laugh when you can  it is cheap medicine.","Let food be thy medicine and medicine be thy food.","The art of medicine consists of amusing the patient while nature cures the disease.","Declare the past  diagnose the present  foretell the future.","The life so short  the craft so long to learn.","music isn't just music- its medicine.","Life is the art of drawing without an eraser.","Keep your best wishes  close to your heart and watch what happens","A fit  healthy body—that is the best fashion statement","Healthy citizens are the greatest asset any country can have."};
+String quotes_array[]={"Always laugh when you can  it is cheap medicine.","Let food be thy medicine and medicine be thy food.","The art of medicine consists of amusing the patient while nature cures the disease.","Declare the past  diagnose the present  foretell the future.","The life so short  the craft so long to learn.","music isn't just music- its medicine.","Life is the art of drawing without an eraser.","Keep your best wishes  close to your heart and watch what happens","A fit  healthy body—that is the best fashion statement","Healthy citizens are the greatest asset any country can have.",""};
 		Random random=new Random();
 		int index=Math.abs(random.nextInt(quotes_array.length-1));
 		quote = quotes_array[index];
+		
+%>
+
+<%
+
+
+
+		primary_key=request.getSession().getAttribute("email").toString();
+		System.out.println("Primary key  -> "+primary_key);
+		OPENDATABASE OD=new OPENDATABASE();
+		com=OD.getDbConnection();
+		Statement stmt=com.createStatement();
+		String query="SELECT * from smart_table where email="+ ("'"+primary_key+"'");
+		System.out.println("Query -> "+query);
+        ResultSet rss=stmt.executeQuery(query);
+		try
+		{
+        while(rss.next())
+	        {
+	        	
+	        	emaill=rss.getString("email");
+	        	first_name=rss.getString("first_name");
+	        	last_name=rss.getString("last_name");
+	        	gender=rss.getString("gender");
+	        	age=rss.getString("age");
+	        	dob_day=rss.getString("dob_day");
+	        	dob_month=rss.getString("dob_month");
+	        	dob_year=rss.getString("dob_year");
+	        	height=rss.getString("height");
+	        	weight=rss.getString("weight");
+	        	//System.out.println("Email and password fetched -> "+emaill+" -> " +passwordd);	
+	        }
+		}
+	    catch(Exception e)
+	    {
+	    	System.out.println("From Profile.jsp : "+e);
+	    }
+	   	stmt.close();
+	    rss.close();
+	    OD.DB_CLOSER(com);
+
 %>
 
 <html>
@@ -74,14 +123,14 @@ String quotes_array[]={"Always laugh when you can  it is cheap medicine.","Let f
 			<td style="text-align: center;">
 				<font class="w3-text-gray w3-opacity-min w3-mobile w3-xxlarge">Gender</font>
 					<br>
-					<font class="w3-text-gray w3-opacity-min w3-mobile w3-xlarge">Male</font><br><br>
+					<font class="w3-text-gray w3-opacity-min w3-mobile w3-xlarge"><% out.write(gender); %></font><br><br>
 					<br>
 
 			</td>
 			<td style="text-align: center;width:600;border-right: transparent;">
 								<font class="w3-text-gray w3-opacity-min w3-mobile w3-xxlarge">Age</font>
 					<br>
-					<font class="w3-text-gray w3-opacity-min w3-mobile w3-xlarge">20</font><br><br><br>
+					<font class="w3-text-gray w3-opacity-min w3-mobile w3-xlarge"><% out.write(age); %></font><br><br><br>
 			</td>
 		</tr>
 		<tr style="border-bottom: transparent;border-left: transparent;">
@@ -90,7 +139,7 @@ String quotes_array[]={"Always laugh when you can  it is cheap medicine.","Let f
 				<br><br>
 								<font class="w3-text-gray w3-opacity-min w3-mobile w3-xxlarge">Email</font>
 					<br>
-					<font class="w3-text-gray w3-opacity-min w3-mobile w3-large">Somthing@example.com</font><br><br>
+					<font class="w3-text-gray w3-opacity-min w3-mobile w3-large"><% out.write(emaill); %></font><br><br>
 			</td>
 
 
@@ -102,13 +151,13 @@ String quotes_array[]={"Always laugh when you can  it is cheap medicine.","Let f
 						<td style="text-align: center" >
 					<font class="w3-text-gray w3-opacity-min w3-mobile w3-xxlarge">Weight</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<br>
-					<font class="w3-text-gray w3-opacity-min w3-mobile w3-large">63 Kg</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+					<font class="w3-text-gray w3-opacity-min w3-mobile w3-large"><% out.write(weight); %> Kg</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
 					
 						</td>
 					<td style="text-align: center">
 					<font class="w3-text-gray w3-opacity-min w3-mobile w3-xxlarge">Height</font>
 					<br>
-					<font class="w3-text-gray w3-opacity-min w3-mobile w3-large">30 m</font><br><br>
+					<font class="w3-text-gray w3-opacity-min w3-mobile w3-large"><% out.write(height); %> m</font><br><br>
 					</td>
 					</tr>
 				</table></center>
@@ -121,7 +170,14 @@ String quotes_array[]={"Always laugh when you can  it is cheap medicine.","Let f
 	<table border="0" class="w3-mobile w3-display-bottomleft" style="width:100%;text-align: center;">
 		<tr>
 			<td style="text-align: center;width: 400px">
-								<font class="w3-text-black w3-opacity-min w3-mobile w3-jumbo">BMI  </font><font class="w3-text-black w3-opacity-min w3-mobile w3-xxlarge">25kg/m<sup>2</sup></font>
+								<font class="w3-text-black w3-opacity-min w3-mobile w3-jumbo">BMI  </font><font class="w3-text-black w3-opacity-min w3-mobile w3-xxlarge"><% 
+								Float bmi;
+
+								bmi= (Float.parseFloat(weight)/Float.parseFloat(height) );
+								out.write(Float.toString( Math.round(bmi*100)/(float)100)); 
+
+
+								%>kg/m<sup>2</sup></font>
 					<br>
 					<font class="w3-text-gray w3-opacity-min w3-mobile w3-large">(Body mass Index)  </font><br><br>
 			</td>
@@ -139,12 +195,13 @@ String quotes_array[]={"Always laugh when you can  it is cheap medicine.","Let f
 
 
  <div class="w3-container w3-display-leftmiddle  w3-mobile w3-win8-cobalt w3-card-4 w3-display-left" style="width: 20%;height: 100%;">
- 	<table border="0" class="w3-display-topleft w3-mobile" style="border-collapse:collapse;width:100%">
+ 	<table border="0" class="w3-display-topmiddle w3-mobile" style="border-collapse:collapse;width:100%">
  		<tr>
- 		<td>
- 			<div class="w3-container  w3-mobile" style="background-color: transparent; ;width: 100%;height: 100%">
+ 		<td >
+ 			<center><div class="w3-container  w3-mobile" style="background-color: transparent; ;width: 100%;height: 100%">
  				<img src="../image/user_logo.png" class="w3-image w3-mobile" width="230" height="200">
  			</div>
+ 			</center>
  			
  		</td>
  	</tr>
@@ -152,40 +209,51 @@ String quotes_array[]={"Always laugh when you can  it is cheap medicine.","Let f
  		<td style="text-align: center;">
  			<br>
  			<label class="w3-text-white w3-mobile">
- 				<font class="" style="font-size:30;border-right: 100%">&#9728;</font><font class="w3-xlarge w3-mobile"> Rait Pravleen Singh</font>
+ 				<font class="" style="font-size:30;border-right: 100%">&#9728;</font><%
+ 				if((first_name+last_name).length()>13)
+ 					out.write("<font class='w3-large w3-mobile'>"+first_name+" "+last_name+"</font>");
+ 				else
+ 					out.write("<font class='w3-xlarge w3-mobile'>"+first_name+" "+last_name+"</font>"); 
+ 				%></font>
  			</label>
  		</td>
  	</tr>
  	<tr>
  		<td style="text-align: center;">
- 			<font class="w3-small w3-mobile w3-text-white">  December 2 ,1995</font>
+ 			<font class="w3-small w3-mobile w3-text-white"><% out.write(dob_month+","+dob_day+","+dob_year); %></font>
  		</td>
  	</tr>
  	<tr>
  		<td style="text-align: center;">
  			<br>
  			<br>
+ 			<a href="../index.html" style="text-decoration: none">
 	 			<center><div class="w3-mobile w3-card-4 w3-container w3-xxlarge  w3-btn w3-ripple w3-round-xlarge w3-light-blue" style="width: 50%;height:35px;">
 	 				<center><font class="w3-xlarge w3-mobile w3-text-white hover-class" style="font-family: alfa Slab One,cursive;">&#8592; Home</font></center>
 	 			</div></center>
+	 		</a>
  		</td>
  	</tr>
  	<tr>
  		<td style="text-align: center;">
  			<br>
  			<br>
+ 			 	<a href="about.html" style="text-decoration: none">
 	 			<center><div class=" w3-mobile w3-container w3-card-4 w3-xxlarge  w3-btn w3-ripple w3-round-xlarge w3-light-blue" style="width: 50%;height:35px;">
 	 				<center><font class=" w3-mobile w3-xlarge w3-text-white hover-class" style="font-family: alfa Slab One,cursive;">About</font></center>
 	 			</div></center>
+	 		</a>
  		</td>
  	</tr>
  		<tr>
  		<td style="text-align: center;">
  			<br>
  			<br>
-	 			<center><div class=" w3-mobile w3-container w3-xxlarge w3-card-4  w3-btn w3-ripple w3-round-xlarge w3-light-blue" style="width: 50%;height:35px;">
-	 				<center><font class=" w3-mobile w3-xlarge w3-text-white hover-class" style="font-family: alfa Slab One,cursive;">Logout</font></center>
-	 			</div></center>
+ 					 <center>
+ 					 <form action="http://localhost:8080/SMART/logout" action="GET">
+ 					 	<input type="submit" name="submit" value="Logout" class="w3-text-white w3-mobile w3-container w3-xlarge w3-card-4  w3-btn  w3-ripple w3-round-xlarge w3-light-blue" style="border:0;width: 50%;height:35px;font-family: alfa Slab One,cursive;font-size: 20px">
+	 				</form>	
+	 				</center>
  		</td>
  	</tr>
  	</table>
