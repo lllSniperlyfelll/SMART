@@ -104,7 +104,7 @@ public class REGISTER extends HttpServlet
 					      pstmt.setString(11,weight);
 					      pstmt.executeUpdate();
 					      pstmt.close();
-					      this.con.close();
+					      od.DB_CLOSER(this.con);
 					      response.sendRedirect("html/register_accept.html");
 						}
 						else
