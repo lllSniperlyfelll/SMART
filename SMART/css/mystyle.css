@@ -1,0 +1,15 @@
+.sidetab
+{
+    margin:none;
+    opacity: 0.5;
+    font-weight: bold; font-family: 'Times New Roman', Times, serif; font-size: 20px;
+
+}
+.btntab 
+{
+    background-color: white;
+    color: black;
+    border: 2px solid blue; 
+    margin-top: 5px; margin-bottom: 5px;
+  }
+  
