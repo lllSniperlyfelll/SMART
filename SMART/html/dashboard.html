@@ -3,51 +3,173 @@
 <head>
         <title>SMART</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="w3.css">
-        <link rel="stylesheet" href="..\css\bootstrap.min.css">
-        <link rel="stylesheet" href="..\css\mystyle.css">
+        <script src="../external_libs/jQuery_cycle.js"></script>
+        <link rel="stylesheet" href="../css/w3.css">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <link rel="stylesheet" href="../css/w3-colors-flat.css">
+		<link rel="stylesheet" href="../css/w3-colors-metro.css">
+		<link rel="stylesheet" href="../css/w3-colors-win8.css">
+		<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-win8.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="../external_libs/dashboardtab.js"></script>
 
+
+        <style>
+        #slide
+        {
+        	color:white;
+        }
+        </style>
+        	
+        	   <script>
+
+    $(document).ready(function(){
+
+    $('#slide').cycle({ 
+   fx : 'fade,zoom,turnDown,curtainX,uncover,curtainY',
+   randomizeEffects: 1,
+   requeueOnImageNotLoaded: true,
+   pause: 0,
+   pauseOnPagerHover: 0,
+    sync:  true, 
+    delay: -2000 
+        });
+    });
+
+    </script>
+
+
     </head>
 </head>
-<body style="background-color:#ccffff;">
-    <div class="w3-bar w3-gray w3-top w3-opacity-min">
-        <div class="w3-bar-item w3-hover-text-white w3-right"><strong>Login</strong></div>
-        <div class="w3-bar-item w3-hover-text-white w3-right"><strong>Register</strong></div>
-        <div class="w3-bar-item"><strong class="w3-text-white">SMART  </strong><i class="fa fa-search"></i></div>
+<body >
+		<div class="w3-card-4 w3-container w3-metro-blue w3-top w3-mobile" style="width:100%;height:62px;">
+			<table border="0" class="w3-display-topmiddle">
+				<tr>
+					<td style="text-align: center;"> <font class=" w3-wide w3-xlarge w3-opacity-min " style="font-family: cursive"> SMART</font>
+					</td>
+				</tr>
+				<tr>
+					<td><font class=" w3-wide w3-tiny w3-opacity-min " style="font-family: cursive"> (Simple Medical Assistant for Rapid Treatment)</font>
+					</td>
+				</tr>
+				
+			</table>
+			
+			
+			<form action="www.google.com" action="get">
+			<button style="background: transparent; border:0;outline: none">
+
+			<div class="w3-hover-opacity w3-hover-white w3-card-4 w3-ripple w3-white w3-display-topleft w3-round-small w3-xlarge w3-mobile" style="margin-top: 0.5%">
+					<table border="0" class="w3-left w3-mobile">
+					<tr>
+						<td style="text-align: center;">
+							
+							<img src="../image/user_logo.png" width="40" height="40" class=""><br>
+						</td>
+						<td style="text-align: center;">
+							&nbsp;&nbsp;<font class="w3-small" style="font-family: cursive">rajpurohitchandansingh0@gmail.com</font>
+						&nbsp;&nbsp;</td>
+					</tr>
+				</table>
+			</div>
+		</button>
+	</form>	
+
+	<div class="w3-dropdown-hover w3-display-right ">
+    <button class="w3-button w3-card-4 w3-light-blue w3-round-large w3-margin-right w3-text-white" style="font-weight: bolder;">Join Us !</button>
+    <div class="w3-dropdown-content w3-bar-block w3-margin-right w3-animate-zoom" style="background-color: transparent;"">
+      <a href="#" class="w3-bar-item " style="text-decoration: none;"><div class="w3-white w3-hover-blue w3-large w3-card-4 w3-round-small w3-dropdown-hover"  style="transition:0.3s;width:70%"> <center>Register</center></div> </a>
+      <a href="#" class="w3-bar-item " style="text-decoration: none;"><div class="w3-white w3-hover-blue  w3-large w3-card-4 w3-round-small"  style="transition:0.3s;width:70%"> <center>Login </center></div> </a>
+      <a href="#" class="w3-bar-item " style="text-decoration: none;"><div class="w3-white w3-hover-blue  w3-large w3-card-4 w3-round-small"  style="transition:0.3s;width:70%"> <center>Know us </center></div> </a>
     </div>
+  	</div>
+	</div>
+	<!--<div class="w3-yellow w3-container w3-top">
+    <div class="w3-container w3-bar w3-white w3-top ">
+        <div class="w3-bar-item w3-hover-text-blue w3-right"><strong>Login</strong></div>
+        <div class="w3-bar-item w3-hover-text-blue w3-right"><strong>Register</strong></div>
+        <div class="w3-bar-item"><strong class="w3-text-blue">SMART  </strong><i class="fa fa-search"></i></div>
+        <br><br>
+    </div>
+</div>--><br><br><br>
     
-    <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-       <img src="C:\xampp\tomcat\webapps\SMART\image\titleimg.jpg" alt="titleimg" width="100%" height="550px">
-       <div class="w3-display-right w3-margin-right w3-right">
-          <div style="font-family:'Times New Roman', Times, serif" class="w3-jumbo w3-text-white w3-right">S M A R T</div><br>
-          <h3 class=" w3-text-red w3-right">Simple Medical Assitant Rapid for Treatment</h3>
-          <br><br><br><button class="w3-button w3-text-white w3-border w3-right"><strong>ABOUT US</strong></button>
+    <div class="w3-display-container  w3-white w3-card-4  " style="width:100%" id="home">
+       <img src="../image/dashboard_back.jpg" alt="titleimg"  class="w3-display-leftmiddle w3-opacity-min" width="100%" height="640px">
+       <div class="w3-display-right  w3-margin-right w3-right w3-xlarge">
+          <div style="font-family:cursive;font-weight: bolder;" class="w3-jumbo w3-text-white w3-right w3-wide">S M A R T</div><br>
+          <h3 class=" w3-text-white w3-right w3-xlarge w3-wide  " style="font-family: cursive;font-weight: bolder;">Simple Medical Assitant Rapid for Treatment</h3>
+          <br><br><br><button class="w3-button w3-text-white w3-card-4 w3-right w3-xlarge w3-metro-blue w3-round-large"><strong>ABOUT US</strong></button>
        </div>
-    </header>
+    </div>
+
+
     
-    <br><br>
-    <table align="center" border="1" width="80%">
+    <br><br><br><br>
+    <table align="center" border="0" width="90%">
         <tr>
-            <td align="center"><div class="card bg-primary text-white">
-                <div class="card-img-top fa fa-stethoscope w3-large"/>
+            <td align="center"><div id="slide" class="  w3-xlarge  w3-text-white card bg-primary">
+                <div class="w3-card-4 card-img-top fa fa-stethoscope w3-large"/>
                 <div class="card-body"><h1>Symtoms Analysis</h1><br>Give Your Symtoms<br> & know about diesease</div>
             </div></td>
-            <td align="center"><div class="card bg-primary text-white">
+            <td align="center"><div class="text-white" style="background-color: transparent;">
                     <div class="card-img-top fa fa-stethoscope w3-large"/>
                     <div class="card-body"><h1>Health Analysis</h1><br>Generate Health<br>Report</div>
             </div></td>
-            <td align="center"><div class="card bg-primary text-white">
+            <td align="center">
+            	<div class=" slide text-white w3-card-4  card bg bg-primary" >
+                    <div class="card-img-top fa fa-stethoscope w3-large"/>
+                    <div class="card-body"><h1>Health Analysis</h1><br>Generate Health<br>Report</div>
+            </div>
+			</td>
+        </tr>
+
+
+        <tr>
+        	<td align="center"><div class="text-white" style="background-color: transparent;">
+                    <div class="card-img-top fa fa-stethoscope w3-large"/>
+                    <div class="card-body"><h1>Health Analysis</h1><br>Generate Health<br>Report</div>
+            </div>
+        	</td>
+
+        	<td align="center"><div class="slide w3-card-4  w3-text-white w3-light-blue">
                     <div class="card-img-top fa fa-stethoscope w3-large"/>
                     <div class="card-body"><h1>Reports</h1><br>Give Your Symtoms<br> & know about diesease</div>
-            </div></td>
-            <td align="center"><div class="card bg-primary text-white">
+            </div>
+        	</td>
+
+
+        	<td align="center"><div class="text-white" style="background-color: transparent;">
                     <div class="card-img-top fa fa-stethoscope w3-large"/>
-                    <div class="card-body"><h1>Diet Chart</h1></div>
-            </div></td>
+                    <div class="card-body"><h1>Health Analysis</h1><br>Generate Health<br>Report</div>
+            </div>
+
+        	</td>
+
+        	<td align="center"><div class="slide w3-card-4  w3-light-blue w3-text-white">
+                    <div class="card-img-top fa fa-stethoscope w3-large"/>
+                    <div class="card-body"><h1>Diet Chart</h1><br>Get information about your diet<br> to prevent diseases</div>
+            </div>
+        	</td>
         </tr>
     </table><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <table border="0" align="center" width="90%" cellspacing="50">
         <tr>
@@ -118,6 +240,6 @@
             </tr>
         </table><br><br><br><br>
 
-    <footer align="center" style="padding:50px; background-color: blue;">&copy;Copyright</footer>
+    <footer align="center" style="padding:14px;" class="w3-container w3-metro-blue w3-opacity-min"><center><label class="w3-text-white" style="width: 90%"> Copyright <sup>&copy;</sup> SMART is only for education and simulation ,learning purposes</label></center></footer>
 </body>
 </html>
