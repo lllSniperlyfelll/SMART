@@ -2,7 +2,7 @@ function hello()
 {
   var height=parseFloat(document.getElementById("hgt").value);
   var weight=parseFloat(document.getElementById("wgt").value);
-  var bmi=weight/Math.pow(height,2);
+  var bmi=weight/height;
   
   if(bmi<18.5)
   {
