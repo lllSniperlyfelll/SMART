@@ -3,6 +3,8 @@
 <head>
         <title>SMART</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="" src="../external_libs/jquery.js"></script>
+        <script type="" src="../external_libs/jQuery_cycle.js"></script>
         <script type="text/javascript" src="../external_libs/dashboardtab.js"></script>
         <link rel="stylesheet" href="../css/w3.css">
         <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -16,31 +18,42 @@
 		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
 		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle/3.0.3/jquery.cycle.all.js"></script>
 
-
-        <!---<style>
-        #slide
-        {
-        	color:white;
-        }
-        </style>
         	
         	   <script>
 
     $(document).ready(function(){
 
-    $('#slide').cycle({ 
+    $('.slide_end').cycle({ 
    fx : 'fade,zoom,turnDown,curtainX,uncover,curtainY',
    randomizeEffects: 1,
    requeueOnImageNotLoaded: true,
    pause: 0,
    pauseOnPagerHover: 0,
     sync:  true, 
-    delay: -2000 
+    delay: 4000 
         });
     });
 
-    </script>-->
+    </script>
+
+      <script>
+
+    $(document).ready(function(){
+
+    $('.slide_start').cycle({ 
+   fx : 'fade',
+   randomizeEffects: 1,
+   requeueOnImageNotLoaded: true,
+   pause: 0,
+   pauseOnPagerHover: 0,
+    sync:  true, 
+    delay: 2000 
+        });
+    });
+
+    </script>
 
 
     </head>
@@ -89,18 +102,27 @@
 	</div><br><br><br>
     
     <div class="w3-display-container  w3-white w3-card-4  " style="width:100%" id="home">
-       <img src="../image/dashboard_back.jpg" alt="titleimg"  class="w3-display-leftmiddle w3-opacity-min" width="100%" height="640px">
-       <div class="w3-display-right  w3-margin-right w3-right w3-xlarge">
+    	<div class="slide_start w3-container" style>
+       <img src="../image/dashboard_back.jpg" alt="titleimg"  class="w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
+       <img src="../image/slide2.jpg" alt="titleimg"  class="w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
+       <img src="../image/slide3.jpg" alt="titleimg"  class="w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
+       <img src="../image/slide4.jpg" alt="titleimg"  class="w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
+       <img src="../image/slide5.jpg" alt="titleimg"  class="w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
+       <img src="../image/slide6.jpg" alt="titleimg"  class="w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
+   </div>
+       <div class="w3-display-right  w3-margin-right w3-right w3-xlarge" style="z-index: 10">
           <div style="font-family:cursive;font-weight: bolder;" class="w3-jumbo w3-text-white w3-right w3-wide">S M A R T</div><br>
           <h3 class=" w3-text-white w3-right w3-xlarge w3-wide  " style="font-family: cursive;font-weight: bolder;">Simple Medical Assitant Rapid for Treatment</h3>
           <br><br><br><button class="w3-button w3-text-white w3-card-4 w3-right w3-xlarge w3-metro-blue w3-round-large"><strong>ABOUT US</strong></button>
        </div>
+
+       
     </div>    <br><br><br><br>
 
     
     <table align="center" width="90%">
         <tr>
-            <td align="center"><div id="slide" class="  w3-xlarge  w3-text-white card bg-primary">
+            <td align="center"><div id="slide" class="  w3-xlarge  w3-text-white card bg-primary w3-hover-light-blue">
                     <div class="card-img-top w3-medium"/>
                 <div class="card-body"><h1>Symtoms Analysis</h1><br>Give Your Symtoms<br> & know about diesease</div>
             </div></td>
@@ -108,7 +130,7 @@
                     <div class="card-body"><h1>Health Analysis</h1><br>Generate Health<br>Report<br><br></div>
             </div></td>
             <td align="center">
-            	<div class=" slide text-white w3-card-4  card bg bg-primary" >
+            	<div class=" slide text-white w3-card-4  card bg bg-primary w3-hover-light-blue" >
                     <div class="card-body"><h1>Health Analysis</h1><br>Generate Health<br>Report</div>
             </div>
 			</td>
@@ -116,7 +138,7 @@
         <tr>
         	<td align="center"><div class="text-white" style="background-color: transparent;"/></td>
 
-        	<td align="center"><div class="slide w3-card-4  w3-text-white w3-light-blue">
+        	<td align="center"><div class="slide w3-card-4  w3-text-white w3-light-blue w3-hover-blue">
                     <div class="card-img-top w3-large"/>
                     <div class="card-body"><h1>Reports</h1><br>Know about Medical Reports<br></div>
             </div>
@@ -130,18 +152,57 @@
 
         	</td>
 
-        	<td align="center"><div class="slide w3-card-4  w3-light-blue w3-text-white">
+        	<td align="center"><div class="slide w3-card-4  w3-light-blue w3-text-white w3-hover-blue">
                     <div class="card-body"><h1>Diet Chart</h1><br>Get information about your<br>diet to prevent diseases</div>
             </div>
         	</td>
         </tr>
-    </table><br><br>
+    </table><br><br><br><br><br><br>
 
-    <div class="w3-display-container w3-shadow">
-            <img src="../image/BMI.jpg" alt="Lights" width="100%" height="400px">
-            <table class="w3-display-right w3-container w3-margin-right" width="450px">
-                    <tr><td><input type="number" placeholder="Weight in kg" class="w3-input w3-bottombar w3-border-blue" id="hgt"><br></td></tr>
-                    <tr><td><input type="number" placeholder="Height in m" class="w3-input w3-bottombar w3-border-blue" id="wgt"><br></td></tr>
+    <div class="w3-container ">
+    	<table style="width:100%" border ="0">
+    		<tr>
+    			<td style="text-align: center;"> 
+    				<img src="../image/BMI chart.jpg" alt="Lights" width="70%" height="440px" class="w3-margin-left w3-card-2">
+    			</td>
+    			<td style="width: 50%">
+    				<div class="w3-container white">
+
+    					<table class=" w3-container w3-margin-right" width="450px">
+    						<tr>
+    							<td>
+    								<br>
+    								<div class="w3-container w3-metro-blue w3-card-4" style="text-align: center;">
+    									<label class="w3-text w3-text-white w3-xlarge" style="font-family: cursive;"> Know Your BMI <sub>(body mass index)</sub></label>
+    								</div>
+    								<br>
+    							</td>
+    						</tr>
+                    <tr><td><input type="number"  placeholder="Weight in kg ..." class=" w3-card-4 w3-input w3-bottombar w3-border-blue" id="wgt"><br></td></tr>
+                    <tr><td><input type="number" placeholder="Height in m ..." class="w3-card-4  w3-input w3-bottombar w3-border-blue" id="hgt" ><br></td></tr>
+                    <tr>
+                        <td>
+                            <button class="w3-button w3-teal w3-card-4 w3-round-small " style="outline: none" onclick="hello()">Calculate</button>
+                          
+                            <div class="w3-card-4 w3-white">
+                            	 <center>
+                            	<p id="demo" onclick="demoshow()">      </p>
+                            <p id="demo1">      </p></center>
+							</div>
+                        </td>
+                        
+                    </tr>
+            		
+            		</table>
+    				</div>
+    			</td>
+    		</tr>
+    	</table>
+            
+           <!-- <div class=" w3-container w3-yellow">
+            <table class=" w3-container w3-margin-right" width="450px">
+                    <tr><td><input type="number" placeholder="Weight in kg" class="w3-input w3-bottombar w3-border-blue" id="wgt"><br></td></tr>
+                    <tr><td><input type="number" placeholder="Height in m" class="w3-input w3-bottombar w3-border-blue" id="hgt"><br></td></tr>
                     <tr>
                         <td>
                             <button class="w3-button w3-teal" onclick="hello()">Calculate</button>
@@ -149,9 +210,10 @@
                             <p id="demo1">      </p></td>
                     </tr>
             </table>
+        </div>-->
           </div> <br><br><br><br>
     
-    <table align="center" width="90%" height="400px">
+   <!-- <table align="center" width="90%" height="400px">
         <tr align="center">
             <td class="sidetab"><button class="w3-white w3-bar w3-border-blue" onclick="openTab('search')">Most Searched Diseases </button></td>
             <td rowspan="5" width="70%">
@@ -187,8 +249,16 @@
         <tr align="center">
             <td class="sidetab"><button class="w3-white w3-bar w3-border-blue" onclick="openTab('food')">Diet</button></td>
         </tr>
-    </table><br><br><br><br>
-
+    </table>-->
+	
+	<center>
+		<div class="slide_end w3-white w3-container" style="width:100%;height:100%;text-align: right;" >
+	<center><img src="../image/most searched.png" class="  w3-round w3-padding w3-border " height="500px" width="1000px"></center>
+	<center><img src="../image/health.jpg" class="  w3-round w3-padding w3-border" height="500px" width="1000px"></center>
+	<center><img src="../image/diet.jpg" class=" w3-round w3-padding w3-border" height="500px" width="1000px"></center>
+	<center><img src="../image/BMI imp.png" class=" w3-round w3-padding w3-border" height="500px" width="1000"></center>
+	</div></center>
+<br><br><br><br>
     <footer align="center" style="padding:14px;" class="w3-container w3-metro-blue w3-opacity-min"><center><label class="w3-text-white" style="width: 90%"> Copyright <sup>&copy;</sup> SMART is only for education and simulation ,learning purposes</label></center></footer>
 </body>
 </html>
