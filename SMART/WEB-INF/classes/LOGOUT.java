@@ -16,7 +16,7 @@ public class LOGOUT extends HttpServlet
 		HttpSession session=null;
 		session=request.getSession(false);
 		session.invalidate();
-		pw.println("Logged Out");
+		response.sendRedirect("html/dashboard.jsp");
 		}
 		catch(Exception e)
 		{
