@@ -21,52 +21,46 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle/3.0.3/jquery.cycle.all.js"></script>
 
         	
-        	   <script>
+       <script>
+	    $(document).ready(function(){
+	    $('.slide_end').cycle({ 
+	   fx : 'fade,zoom,turnDown,curtainX,uncover,curtainY',
+	   randomizeEffects: 1,
+	   requeueOnImageNotLoaded: true,
+	   pause: 0,
+	   pauseOnPagerHover: 0,
+	    sync:  true, 
+	    delay: 4000 
+	        });
+	    });
+    	</script>
 
-    $(document).ready(function(){
-
-    $('.slide_end').cycle({ 
-   fx : 'fade,zoom,turnDown,curtainX,uncover,curtainY',
-   randomizeEffects: 1,
-   requeueOnImageNotLoaded: true,
-   pause: 0,
-   pauseOnPagerHover: 0,
-    sync:  true, 
-    delay: 4000 
-        });
-    });
-
-    </script>
-
-      <script>
-
-    $(document).ready(function(){
-
-    $('.slide_start').cycle({ 
-   fx : 'fade',
-   randomizeEffects: 1,
-   requeueOnImageNotLoaded: true,
-   pause: 0,
-   pauseOnPagerHover: 0,
-    sync:  true, 
-    delay: 2000 
-        });
-    });
-
-    </script>
+      	<script>
+	    $(document).ready(function(){
+	    $('.slide_start').cycle({ 
+	   fx : 'fade',
+	   randomizeEffects: 1,
+	   requeueOnImageNotLoaded: true,
+	   pause: 0,
+	   pauseOnPagerHover: 0,
+	    sync:  true, 
+	    delay: 2000 
+	        });
+	    });
+	    </script>
 
 
     </head>
 </head>
 <body >
-		<div class="w3-card-4 w3-container w3-metro-blue w3-top w3-mobile" style="width:100%;height:62px;">
-			<table border="0" class="w3-display-topmiddle">
+		<div class="w3-animate-zoom w3-card-4 w3-container w3-metro-blue w3-top w3-mobile" style="width:100%;height:62px;z-index: 100">
+			<table border="0" class="w3-animate-zoom w3-display-topmiddle">
 				<tr>
-					<td style="text-align: center;"> <font class=" w3-wide w3-xlarge w3-opacity-min " style="font-family: cursive"> SMART</font>
+					<td style="text-align: center;"> <font class=" w3-animate-zoom w3-wide w3-xlarge w3-opacity-min " style="font-family: cursive"> SMART</font>
 					</td>
 				</tr>
 				<tr>
-					<td><font class=" w3-wide w3-tiny w3-opacity-min " style="font-family: cursive"> (Simple Medical Assistant for Rapid Treatment)</font>
+					<td><font class="w3-animate-zoom  w3-wide w3-tiny w3-opacity-min " style="font-family: cursive"> (Simple Medical Assistant for Rapid Treatment)</font>
 					</td>
 				</tr>
 				
@@ -76,15 +70,15 @@
 			<form action="www.google.com" action="get">
 			<button style="background: transparent; border:0;outline: none">
 
-			<div class="w3-hover-opacity w3-hover-white w3-card-4 w3-ripple w3-white w3-display-topleft w3-round-small w3-xlarge w3-mobile" style="margin-top: 0.5%">
-					<table border="0" class="w3-left w3-mobile">
+			<div class="w3-animate-zoom w3-hover-opacity w3-hover-white w3-card-4 w3-ripple w3-white w3-display-topleft w3-round-small w3-xlarge w3-mobile w3-margin-left" style="margin-top: 0.5%">
+					<table border="0" class="w3-animate-zoom w3-left w3-mobile">
 					<tr>
 						<td style="text-align: center;">
 							
 							<img src="../image/user_logo.png" width="40" height="40" class=""><br>
 						</td>
 						<td style="text-align: center;">
-							&nbsp;&nbsp;<font class="w3-small" style="font-family: cursive">rajpurohitchandansingh0@gmail.com</font>
+							&nbsp;&nbsp;<font class="w3-animate-zoom w3-small" style="font-family: cursive">rajpurohitchandansingh0@gmail.com</font>
 						&nbsp;&nbsp;</td>
 					</tr>
 				</table>
@@ -92,28 +86,53 @@
 		</button>
 	</form>	
 
-	<div class="w3-dropdown-hover w3-display-right ">
-    <button class="w3-button w3-card-4 w3-light-blue w3-round-large w3-margin-right w3-text-white" style="font-weight: bolder;">Join Us !</button>
-    <div class="w3-dropdown-content w3-bar-block w3-margin-right w3-animate-zoom" style="background-color: transparent;"">
-      <a href="#" class="w3-bar-item " style="text-decoration: none;"><div class="w3-white w3-hover-blue w3-large w3-card-4 w3-round-small w3-dropdown-hover"  style="transition:0.3s;width:70%"> <center>Register</center></div> </a>
-      <a href="#" class="w3-bar-item " style="text-decoration: none;"><div class="w3-white w3-hover-blue  w3-large w3-card-4 w3-round-small"  style="transition:0.3s;width:70%"> <center>Login </center></div> </a>
-    </div>
+	
+	<div class="w3-animate-zoom w3-right " style="height: 20%;width:20%" >
+		<table border="0" cellpadding="10" class="w3-display-right">
+			<tr>
+				<td ><a href="register.html" style="text-decoration:none">
+					<div class=" w3-dropdown-hover w3-animate-zoom  w3-large w3-card-4 w3-round-large" style="background-color: powderblue;font-weight: bolder;"> 
+						<div class=" w3-dropdown-hover w3-animate-zoom w3-button w3-large w3-card-4 w3-round-large" style="background-color: powderblue;font-weight: bolder;">
+							<font class="w3-text-white">Login</font>
+						</div>
+						<div class="w3-card-4  w3-dropdown-content" style="background-color: transparent;">
+							<img src="../image/signin.png" width="160" height="100">
+						</div>
+					</div>
+			</a>	
+		</td>
+				<td>
+					<a href="register.html" style="text-decoration:none">
+					<div class=" w3-dropdown-hover w3-animate-zoom  w3-large w3-card-4 w3-round-large" style="background-color: powderblue;font-weight: bolder;"> 
+						<div class=" w3-dropdown-hover w3-animate-zoom w3-button w3-large w3-card-4 w3-round-large" style="background-color: powderblue;font-weight: bolder;">
+							<font class="w3-text-white">Register</font>
+						</div>
+						<div class="w3-card-4 w3-margin-right w3-dropdown-content" style="background-color: transparent;">
+							<img src="../image/register.png" width="125" height="120">
+						</div>
+					</div>
+			</a>
+				</td>
+			</tr>
+		</table>
+		
+		
   	</div>
 	</div><br><br><br>
     
-    <div class="w3-display-container  w3-white w3-card-4  " style="width:100%" id="home">
-    	<div class="slide_start w3-container" style>
-       <img src="../image/dashboard_back.jpg" alt="titleimg"  class="w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
-       <img src="../image/slide2.jpg" alt="titleimg"  class="w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
-       <img src="../image/slide3.jpg" alt="titleimg"  class="w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
-       <img src="../image/slide4.jpg" alt="titleimg"  class="w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
-       <img src="../image/slide5.jpg" alt="titleimg"  class="w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
-       <img src="../image/slide6.jpg" alt="titleimg"  class="w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
+    <div class="w3-animate-zoom w3-display-container  w3-white w3-card-4  " style="width:100%" id="home">
+    	<div class="slide_start w3-container" style="z-index: -0.5">
+       <img src="../image/dashboard_back.jpg" alt="titleimg"  class="w3-animate-zoom w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
+       <img src="../image/slide2.jpg" alt="titleimg"  class="w3-animate-zoom w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
+       <img src="../image/slide3.jpg" alt="titleimg"  class="w3-animate-zoom w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
+       <img src="../image/slide4.jpg" alt="titleimg"  class="w3-animate-zoom w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
+       <img src="../image/slide5.jpg" alt="titleimg"  class="w3-animate-zoom w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
+       <img src="../image/slide6.jpg" alt="titleimg"  class="w3-animate-zoom w3-display-leftmiddle w3-opacity-min" width="100%" height="673px">
    </div>
-       <div class="w3-display-right  w3-margin-right w3-right w3-xlarge" style="z-index: 10">
-          <div style="font-family:cursive;font-weight: bolder;" class="w3-jumbo w3-text-white w3-right w3-wide">S M A R T</div><br>
-          <h3 class=" w3-text-white w3-right w3-xlarge w3-wide  " style="font-family: cursive;font-weight: bolder;">Simple Medical Assitant Rapid for Treatment</h3>
-          <br><br><br><button class="w3-button w3-text-white w3-card-4 w3-right w3-xlarge w3-metro-blue w3-round-large"><strong>ABOUT US</strong></button>
+       <div class="w3-animate-fade w3-display-right  w3-margin-right w3-right w3-xlarge" style="z-index: 10">
+          <div style="font-family:cursive;font-weight: bolder;" class="w3-animate-fade w3-jumbo w3-text-white w3-right w3-wide">S M A R T</div><br>
+          <h3 class="w3-animate-zoom  w3-text-white w3-right w3-xlarge w3-wide  " style="font-family: cursive;font-weight: bolder;">Simple Medical Assitant Rapid for Treatment</h3>
+          <br><br><br><button class="w-animate-fade  w3-button w3-text-white w3-card-4 w3-right w3-xlarge w3-metro-blue w3-round-large"><strong>ABOUT US</strong></button>
        </div>
 
        
@@ -122,69 +141,69 @@
     
     <table align="center" width="90%">
         <tr>
-            <td align="center"><div id="slide" class="  w3-xlarge  w3-text-white card bg-primary w3-hover-light-blue">
-                    <div class="card-img-top w3-medium"/>
-                <div class="card-body"><h1>Symtoms Analysis</h1><br>Give Your Symtoms<br> & know about diesease</div>
+            <td align="center"><div id="slide" class="w3-animate-zoom   w3-xlarge  w3-text-white card bg-primary w3-hover-light-blue">
+                    <div class="w3-animate-zoom card-img-top w3-medium"/>
+                <div class="w3-animate-zoom card-body"><h1>Symtoms Analysis</h1><br>Give Your Symtoms<br> & know about diesease</div>
             </div></td>
             <td align="center"><div class="text-white">
-                    <div class="card-body"><h1>Health Analysis</h1><br>Generate Health<br>Report<br><br></div>
+                    <div class="w3-animate-zoom card-body"><h1>Health Analysis</h1><br>Generate Health<br>Report<br><br></div>
             </div></td>
             <td align="center">
-            	<div class=" slide text-white w3-card-4  card bg bg-primary w3-hover-light-blue" >
-                    <div class="card-body"><h1>Health Analysis</h1><br>Generate Health<br>Report</div>
+            	<div class="w3-animate-zoom  slide text-white w3-card-4  card bg bg-primary w3-hover-light-blue" >
+                    <div class="w3-animate-zoom card-body"><h1>Health Analysis</h1><br>Generate Health<br>Report</div>
             </div>
 			</td>
         </tr>
         <tr>
-        	<td align="center"><div class="text-white" style="background-color: transparent;"/></td>
+        	<td align="center"><div class="w3-animate-zoom text-white" style="background-color: transparent;"/></td>
 
-        	<td align="center"><div class="slide w3-card-4  w3-text-white w3-light-blue w3-hover-blue">
-                    <div class="card-img-top w3-large"/>
-                    <div class="card-body"><h1>Reports</h1><br>Know about Medical Reports<br></div>
+        	<td align="center"><div class="w3-animate-zoom slide w3-card-4  w3-text-white w3-light-blue w3-hover-blue">
+                    <div class="w3-animate-zoom card-img-top w3-large"/>
+                    <div class="w3-animate-zoom card-body"><h1>Reports</h1><br>Know about Medical Reports<br></div>
             </div>
         	</td>
 
 
-        	<td align="center"><div class="text-white" style="background-color: transparent;">
-                    <div class="card-img-top fa fa-stethoscope w3-large"/>
-                    <div class="card-body"></div>
+        	<td align="center"><div class="w3-animate-zoom text-white" style="background-color: transparent;">
+                    <div class="w3-animate-zoom card-img-top fa fa-stethoscope w3-large"/>
+                    <div class="w3-animate-zoom card-body"></div>
             </div>
 
         	</td>
 
-        	<td align="center"><div class="slide w3-card-4  w3-light-blue w3-text-white w3-hover-blue">
-                    <div class="card-body"><h1>Diet Chart</h1><br>Get information about your<br>diet to prevent diseases</div>
+        	<td align="center"><div class="w3-animate-zoom slide w3-card-4  w3-light-blue w3-text-white w3-hover-blue">
+                    <div class="w3-animate-zoom card-body"><h1>Diet Chart</h1><br>Get information about your<br>diet to prevent diseases</div>
             </div>
         	</td>
         </tr>
     </table><br><br><br><br><br><br>
 
-    <div class="w3-container ">
+    <div class="w3-animate-zoom w3-container ">
     	<table style="width:100%" border ="0">
     		<tr>
     			<td style="text-align: center;"> 
-    				<img src="../image/BMI chart.jpg" alt="Lights" width="70%" height="440px" class="w3-margin-left w3-card-2">
+    				<img src="../image/BMI chart.jpg" id="bmichart" alt="Lights" width="70%" height="440px" class="w3-animate-zoom w3-margin-left w3-card-2">
     			</td>
     			<td style="width: 50%">
-    				<div class="w3-container white">
+    				<div class="w3-animate-zoom w3-container white">
 
-    					<table class=" w3-container w3-margin-right" width="450px">
+    					<table class="w3-animate-zoom  w3-container w3-margin-right" width="450px">
     						<tr>
     							<td>
     								<br>
-    								<div class="w3-container w3-metro-blue w3-card-4" style="text-align: center;">
-    									<label class="w3-text w3-text-white w3-xlarge" style="font-family: cursive;"> Know Your BMI <sub>(body mass index)</sub></label>
+    								<div class="w3-animate-zoom w3-container w3-metro-blue w3-card-4" style="text-align: center;">
+    									<label class="w3-animate-zoom w3-text w3-text-white w3-xlarge" style="font-family: cursive;"> Know Your BMI <sub>(body mass index)</sub></label>
     								</div>
     								<br>
     							</td>
     						</tr>
-                    <tr><td><input type="number"  placeholder="Weight in kg ..." class=" w3-card-4 w3-input w3-bottombar w3-border-blue" id="wgt"><br></td></tr>
-                    <tr><td><input type="number" placeholder="Height in m ..." class="w3-card-4  w3-input w3-bottombar w3-border-blue" id="hgt" ><br></td></tr>
+                    <tr><td><input type="number"  placeholder="Weight in kg ..." class="w3-animate-zoom  w3-card-4 w3-input w3-bottombar w3-border-blue" id="wgt"><br></td></tr>
+                    <tr><td><input type="number" placeholder="Height in m ..." class="w3-animate-zoom w3-card-4  w3-input w3-bottombar w3-border-blue" id="hgt" ><br></td></tr>
                     <tr>
                         <td>
-                            <button class="w3-button w3-teal w3-card-4 w3-round-small " style="outline: none" onclick="hello()">Calculate</button>
+                            <button class="w3-button w3-teal w3-card-4 w3-round-small w3-animate-zoom " style="outline: none" onclick="hello()">Calculate</button>
                           
-                            <div class="w3-card-4 w3-white">
+                            <div class="w3-animate-zoom w3-card-4 w3-white">
                             	 <center>
                             	<p id="demo" onclick="demoshow()">      </p>
                             <p id="demo1">      </p></center>
@@ -252,13 +271,13 @@
     </table>-->
 	
 	<center>
-		<div class="slide_end w3-white w3-container" style="width:100%;height:100%;text-align: right;" >
-	<center><img src="../image/most searched.png" class="  w3-round w3-padding w3-border " height="500px" width="1000px"></center>
-	<center><img src="../image/health.jpg" class="  w3-round w3-padding w3-border" height="500px" width="1000px"></center>
-	<center><img src="../image/diet.jpg" class=" w3-round w3-padding w3-border" height="500px" width="1000px"></center>
-	<center><img src="../image/BMI imp.png" class=" w3-round w3-padding w3-border" height="500px" width="1000"></center>
+		<div class="w3-animate-zoom slide_end w3-white w3-container" style="width:100%;height:100%;text-align: right;" >
+	<center><img src="../image/most searched.png" class="w3-animate-zoom   w3-round w3-padding w3-border " height="500px" width="1000px"></center>
+	<center><img src="../image/health.jpg" class="w3-animate-zoom   w3-round w3-padding w3-border" height="500px" width="1000px"></center>
+	<center><img src="../image/diet.jpg" class="w3-animate-zoom  w3-round w3-padding w3-border" height="500px" width="1000px"></center>
+	<center><img src="../image/BMI imp.png" class="w3-animate-zoom  w3-round w3-padding w3-border" height="500px" width="1000"></center>
 	</div></center>
 <br><br><br><br>
-    <footer align="center" style="padding:14px;" class="w3-container w3-metro-blue w3-opacity-min"><center><label class="w3-text-white" style="width: 90%"> Copyright <sup>&copy;</sup> SMART is only for education and simulation ,learning purposes</label></center></footer>
+    <footer align="center" style="padding:14px;" class="w3-animate-zoom w3-container w3-metro-blue w3-opacity-min"><center><label class="w3-text-white" style="width: 90%"> Copyright <sup>&copy;</sup> SMART is only for education and simulation ,learning purposes</label></center></footer>
 </body>
 </html>
