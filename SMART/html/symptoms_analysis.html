@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>SMART</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="../external_libs/jquery.js"></script>
+   <link rel="stylesheet" type="text/css" media="all" href="style.css">
+        <link rel="stylesheet" type="text/css" media="all" href="../css/auto_correct_style.css">
+        <link rel="stylesheet" href="../css/w3.css">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <link rel="stylesheet" href="../css/w3-colors-flat.css">
+	<link rel="stylesheet" href="../css/w3-colors-metro.css">
+	<link rel="stylesheet" href="../css/w3-colors-win8.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-win8.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
+        <style type="text/css">
+                
+        </style>
+        <script type="text/javascript">
+        
+$(document).ready(function(){
+        var i=0;
+        var flag=0;
+        $("#btn").click(function(){
+        i+=1;
+        var t=0;
+        var j;
+        var tb="<tr><td style='text-align: center;width: 20%'><center><div class='w3-white w3-bar w3-card-4 w3-round-small' style='text-align: center;height:100%;width: 90%'><label class='w3-text w3-large'>Symptom</label></div></center></td><td style='width:40%'><input type='text' name='sym"+i+"' class='autocomplete w3-input w3-card-4 w3-round-small' placeholder='Enter Symptom'  style=';border-bottom: 2px solid blue ' required></td><td style='width: 20'><div class='w3-white w3-bar w3-card-4 w3-round-small' style='text-align: center;height:100%;width: 90%'><label class='w3-text w3-large'>How Many Days</label></div></td><td><input type='number' name='day"+i+"' class='w3-input w3-card-4 w3-round-small' placeholder='Days..' style='border-bottom: 2px solid blue;width:50%; ' required></td></tr>";
+        if(flag==0)
+        {
+                for(;t<4;t++)
+                {
+                        var tbb="<tr><td style='text-align: center;width: 20%'><center><div class='w3-white w3-bar w3-card-4 w3-round-small' style='text-align: center;height:100%;width: 90%'><label class='w3-text w3-large'>Symptom</label></div></center></td><td style='width:40%'><input type='text' name='sym"+i+"' class='w3-input w3-card-4 w3-round-small autocomplete' placeholder='Enter Symptom' style=';border-bottom: 2px solid blue ' required></td><td style='width: 20'><div class='w3-white w3-bar w3-card-4 w3-round-small' style='text-align: center;height:100%;width: 90%'><label class='w3-text w3-large'>How Many Days</label></div></td><td><input type='number' name='day"+i+"' class='w3-input w3-card-4 w3-round-small' placeholder='Days..' style='border-bottom: 2px solid blue;width:50%; ' required></td></tr>";
+
+                       
+                        $("#divv").append(tbb);
+                        i+=1;
+                        
+                }
+                flag=1;
+        }
+        else
+                {
+                $("#divv").append(tb);
+                }
+        });
+
+});
+</script>
+                <script type="text/javascript" src="../external_libs/jquery.autocomplete.min.js"></script>
+        <script type="text/javascript" src="../external_libs/auto_correct_data.js"></script>
+</head>
+
+        <body class="w3-container">
+                <div class="autocomletew3-bar w3-card-4 w3-container w3-metro-blue w3-top w3-mobile" style="width:98%;height:100px;z-index: 100">
+                        <table border="0" class="w3-display-topmiddle">
+                                <tr>
+                                        <td style="text-align: center;"> <font class=" w3-wide w3-large " style="font-family: cursive"> SMART</font>
+                                        </td>
+                                </tr>
+                                <!---<tr>
+                                        <td style="text-align: center;"><font class="w3-wide w3-tiny " style="font-family: cursive"> (Simple Medical Assistant for Rapid Treatment)</font>
+                                        </td>
+                                </tr>-->
+                                <tr>
+                                        <td>
+                                                <label class="w3-text w3-xxlarge">Hi!</label> Here I can Predict Your Disease I Just need to Know Some Symptoms and number of days Your Have Them.
+                                        </td>
+                                </tr>
+
+                                
+                        </table>
+                </div>
+        <form action="google" method="get">
+        <div class="w3-light-blue w3-display-middle w3-bar w3-card-4 w3-round-large w3-container" style="width:90%;">
+              
+              <center>
+               <table border="0"  cellpadding="11" cellspacing="9" style="width:80%" id="divv">
+                <tr>
+                        <td>
+                        </td>
+                </tr>
+             
+                <!--<tr><td style='text-align: center;width: 20%'><center><div class='w3-white w3-bar w3-card-4 w3-round-small' style='text-align: center;height:100%;width: 90%'><label class='w3-text w3-large'>Symptom 1</label></div></center></td><td style='width:40%'><input type='text' name='sym' class='w3-input w3-card-4 w3-round-small' placeholder='Enter Symptom' style=';border-bottom: 2px solid blue '></td><td style='width: 20'><div class='w3-white w3-bar w3-card-4 w3-round-small' style='text-align: center;height:100%;width: 90%'><label class='w3-text w3-large'>How Many Days</label></div></td>
+                                <td><input type='text' name='sym' class='w3-input w3-card-4 w3-round-small' placeholder='Days..' style='border-bottom: 2px solid blue;width:50%; '></td></tr>-->
+
+                </table>
+                </center> 
+                
+        </div>
+                        <button class="w3-container w3-display-topright w3-metro-blue w3-card-4 w3-button w3-card-4 w3-round-large"  style="height:99px;width: 109px;margin-top: 20%;">
+                        <center><div class="w3-bar w3-button w3-round-large" style="background-color: transparent;">
+                        <center><label class=" w3-text w3-large">
+                               Done <br>&#x1F44D;<br>
+                        </label></center>
+                        </div></center>
+                </button>
+
+                </div>
+                        <div class="w3-bar w3-top w3-metro-blue w3-card-4 w3-button w3-card-4 w3-round-large" onclick="auto()" id="btn" style="height:150px;width: 140px;top:40%">
+                        <label class=" w3-text w3-large">
+                                <br>Add <br>Symptoms<br>&#43;
+                        </label>
+                </div>
+        </form>
+
+       
+
+        </body>
+</html>
