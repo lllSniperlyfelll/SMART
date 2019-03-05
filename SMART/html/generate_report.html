@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>SMART Report</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="w3.css">
+        <link rel="stylesheet" href="..\css\mystyle.css">
+        <link rel="stylesheet" href="../css/w3-colors-metro.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="../external_libs/Reporthandler.js"></script>
+</head>
+<body style="background-color:black;">
+    <table align="center" width="90%" height="90%" cellspacing="15">
+        <tr class="w3-card 4 w3-teal w3-center w3-container w3-padding-24 w3-round-large">
+
+        </tr>
+        <tr>
+                <td class="w3-card 4 w3-white w3-center w3-container w3-padding-24 w3-round-large">
+                        <h3>Blood pressure</h3>
+                        <input type="number" id="systolic_p" placeholder="Systolic pressure" class="w3-input w3-bottombar w3-border-blue w3-padding"/><br><br>
+                        <input type="number" id="diatolic_p" placeholder="Diatolic pressure" class="w3-input w3-bottombar w3-border-blue w3-padding"/>
+                        <br><br><br> 
+                        <button class="w3-button" id="btnBP" onclick="analyze(1)">Calculate</button>
+                </td> 
+                <td class="w3-card 4 w3-white w3-center w3-container w3-padding-24 w3-round-large">
+                        <h3>Body Mass Index</h3>
+                        <input type="number"id="height" placeholder="Height in m" class="w3-input w3-bottombar w3-border-blue w3-padding"/><br><br>
+                        <input type="number" id="weight" placeholder="Weight in kg" class="w3-input w3-bottombar w3-border-blue w3-padding"/>
+                        <br><br><br>
+                        <button class="w3-button" id="btnBMI" onclick="analyze(2)">Calculate</button>
+                </td>
+                <td class="w3-card 4 w3-white w3-center w3-container w3-padding-24 w3-round-large">
+                            <h3>Blood Sugar</h3>
+                            <input type="number" id="hdl" placeholder="HDL cholesterol" class="w3-input w3-bottombar w3-border-blue w3-padding"/><br><br>
+                            <input type="number"id="ldl" placeholder="LDL cholesterol" class="w3-input w3-bottombar w3-border-blue w3-padding"/>
+                            <br><br><br>
+                            <button class="w3-button" id="btnSugar" onclick="analyze(3)">Calculate</button>
+                </td>
+        </tr>
+
+        <tr>
+            <td class="w3-card 4 w3-white w3-center w3-container w3-padding-24 w3-round-large" colspan="3">
+                <h2> Few More To Know </h2><br><br>
+                    <div class="w3-border w3-margin">
+                            <p>Do You prefer ? </p>
+                            <input type="checkbox" id="alc" class="w3-padding" onclick="analyze(4)">Alcohol
+                            <input type="checkbox" id="smk" class="w3-padding">Smoking
+                            <input type="checkbox" id="tob" class="w3-padding">Tobacco
+                            <input type="checkbox" id="no" class="w3-padding">Nothing
+                    </div>
+                <input type="number"id="water" placeholder="Liters of water your drink in a day" class="w3-input w3-bottombar w3-border-blue w3-padding" onblur="analyze(5)"/>
+                <p id="pSugar"></p>
+                <input type="number"id="sleep" placeholder="How many hrs do u sleep in a day" class="w3-input w3-bottombar w3-border-blue w3-padding" onblur="analyze(6)"/>
+                <p id="pSleep"></p>
+                <button onclick="analyze(7)">TEst button to genarate health status</button>
+            </td>
+        </tr>
+
+
+    </table>
+</body>
+</html>
