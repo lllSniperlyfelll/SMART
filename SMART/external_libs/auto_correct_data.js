@@ -1,3 +1,6 @@
+function auto()
+{
+
 $(function(){
   var currencies = [{ value: 'fever', data: 'fever' },
 { value: 'headache', data: 'headache' },
@@ -118,8 +121,8 @@ $(function(){
 { value: 'loose teeth', data: 'loose teeth' },
 { value: 'gum abscesses', data: 'gum abscesses' },
   ];
-  
-  $('#autocomplete').autocomplete({
+  $(document).ready(function () {
+  	$('.autocomplete').autocomplete({
     lookup: currencies,
     onSelect: function (suggestion) {
       var thehtml = '<strong>Currency Name:</strong> ' + suggestion.value + ' <br> <strong>Symbol:</strong> ' + suggestion.data;
@@ -127,5 +130,8 @@ $(function(){
     }
   });
   
+  });
+  
 
 });
+}
