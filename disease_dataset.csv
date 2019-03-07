@@ -204,9 +204,19 @@ Junin_virus,fever,10
 Pertussis,extreme_fatigue,10
 Pertussis,fever,11
 Pertussis,vomiting,12
-Pertussis,breathing problems,11
+Pertussis,breathing_problems,11
 Shigellosis,fever,6
 Shigellosis,nausea,6
 Shigellosis,vomiting,6
 Shigellosis,Watery_diarrhea,7
 Shigellosis,Watery_or_bloody_diarrhea,8
+Anthrax,cold,7
+Anthrax,sore_throat,7
+Anthrax,fever,7
+Anthrax,aching_muscles,7
+Anthrax,cough,7
+Anthrax,breathing_problem,7
+Anthrax,fatigue,7
+Anthrax,shaking,7
+Anthrax,chills,7
+Anthrax,vomiting,7
