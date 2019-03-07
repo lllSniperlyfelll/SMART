@@ -201,3 +201,12 @@ Junin_virus,Bleeding_under_the_skin,11
 Junin_virus,Bleeding_from_internal_organs,12
 Junin_virus,Fatigue,10
 Junin_virus,fever,10
+Pertussis,extreme_fatigue,10
+Pertussis,fever,11
+Pertussis,vomiting,12
+Pertussis,breathing problems,11
+Shigellosis,fever,6
+Shigellosis,nausea,6
+Shigellosis,vomiting,6
+Shigellosis,Watery_diarrhea,7
+Shigellosis,Watery_or_bloody_diarrhea,8
