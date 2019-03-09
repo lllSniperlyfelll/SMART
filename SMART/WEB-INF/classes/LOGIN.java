@@ -7,6 +7,8 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.util.*;
 import DatabaseConnector.OPENDATABASE;
+import static.java.lang.System.out;
+
 
 public class LOGIN extends HttpServlet
 
