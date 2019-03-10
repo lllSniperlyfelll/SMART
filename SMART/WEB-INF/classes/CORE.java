@@ -5,8 +5,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 import DataStore.STOREDATA;
-import MakeClass.MAKECLASS;
-import Think.THINK;
+import PredictionLogic.MAKECLASS;
+import PredictionLogic.THINK;
 
 public class CORE extends HttpServlet
 {
@@ -38,6 +38,8 @@ public class CORE extends HttpServlet
 		{
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
+		symptom.clear();
+		days.clear();
 		String h[]=new String[1000];
 		Enumeration symptoms=request.getParameterNames();
 		while(symptoms.hasMoreElements())
@@ -61,11 +63,9 @@ public class CORE extends HttpServlet
 			}
 				System.out.println("Symptoms values -> "+symptom);
 				System.out.println("Days values -> "+days);
-				MAKECLASS MC =new MAKECLASS();
-				MC.setInputData(symptom,days);
 				THINK T=new THINK();
 				System.out.println("Called think");
-				T.getPrintData();
+				T.getPrintData(symptom,days);
 				//SD.setData(symptom,days);
 				//GSD.getPrintData();
 
