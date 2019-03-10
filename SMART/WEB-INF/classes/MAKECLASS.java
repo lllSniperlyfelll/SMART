@@ -1,4 +1,4 @@
-package MakeClass;
+package PredictionLogic;
 
 import java.io.*;
 import java.util.*;
@@ -8,8 +8,8 @@ public class MAKECLASS
 	public ArrayList<String> raw_classes=new ArrayList<String>();
 	public ArrayList<String> symptoms=new ArrayList<String>();
 	public ArrayList<String> days=new ArrayList<String>();
-	public ArrayList<String> input_symptoms=new ArrayList<String>();
-	public ArrayList<String> input_days=new ArrayList<String>();
+	public  ArrayList<String> input_symptoms=new ArrayList<String>();
+	public  ArrayList<String> input_days=new ArrayList<String>();
 	public ArrayList<String> feature_classes=new ArrayList<String>();
 	public int count=0;
 String getLHS(String data)
@@ -27,21 +27,6 @@ String getLHS(String data)
 		}
 		return(lhs);
 	}
-
-public void setInputData(ArrayList<String> symptoms,ArrayList<Integer> daysi)
-	{
-		Iterator itr=daysi.iterator();
-		while(itr.hasNext())
-		{
-			String g= itr.next().toString();
-			this.input_days.add(g);
-		}
-		this.input_symptoms.addAll(symptoms);
-
-		System.out.println("Input symptoms -> "+this.input_symptoms);
-		System.out.println("Input Days -> "+this.input_days);
-	}
-
  	public void MakeClass()
 		{
 		this.raw_classes.clear();
@@ -62,13 +47,12 @@ public void setInputData(ArrayList<String> symptoms,ArrayList<Integer> daysi)
 				traindata=br.readLine();
 				if(traindata!=null)
 				{
-					this.count++;
+				this.count++;
 				data=traindata.split(",");
-				//System.out.println("data -> "+);
 				this.raw_classes.add(data[0]);
 				this.symptoms.add(data[1]);
 				this.days.add(data[2]);
-			}
+				}
 			}
 			System.out.println("File opened");
 			Iterator itr=this.raw_classes.iterator();
@@ -86,7 +70,6 @@ public void setInputData(ArrayList<String> symptoms,ArrayList<Integer> daysi)
 					this.feature_classes.add(raw_data);
 				}
 			}
-			//System.out.println("Data from MAKECLASS -> "+this.raw_classes);
 		}
 		
 
