@@ -1,68 +1,98 @@
-var health_rating=0;
+//var health_rating=0;
 
-function analyze(option) 
+function analyze() 
 {
-    var temp;
-    if (option == "1") 
-    {
-        var systolic_pressure = document.getElementById("systolic_p").value;
-        var distolic_pressure = document.getElementById("diatolic_p").value;
-        
+        var systolic_pressure,distolic_pressure,pressure_result;
+        var height,weight,bmi,bmi_result;
+        var HDL,LDL,cholestrol_result;
+        var water,nodrink,alergies,genetic,sleep,tied,appitite,stamina;
+        var health_rating=0,bad_health=0,health_status;
+        distolic_pressure = document.getElementById("diatolic_p").value;
+        systolic_pressure = document.getElementById("systolic_p").value;
         if (systolic_pressure<=120 && distolic_pressure >=80)
-           { document.getElementById("btnBP").innerHTML="Normal Pressure"; health_rating+=1; }
+           {
+                 health_rating++;
+                 pressure_result="Normal Pressure";
+           }
         else if(systolic_pressure>120 && distolic_pressure>80)
-            { document.getElementById("btnBP").innerHTML="High Pressure";}
+            {
+                 pressure_result="High Pressure"; bad_health++;
+            }
         else if(systolic_pressure<120 && distolic_pressure<80)
-            { document.getElementById("btnBP").innerHTML="Low Pressure";}
-    }
-    else if(option == "2")
-    {
-        var height = document.getElementById("height").value;
-        var weight = document.getElementById("weight").value;
-        var bmi=weight/Math.pow(height,2);
+            {
+                 pressure_result="Low Pressure"; bad_health++;
+            }
+    
+        height = document.getElementById("height").value;
+        weight = document.getElementById("weight").value;
+        bmi=weight/Math.pow(height,2);
         if(bmi<18.5)
-        { document.getElementById("btnBMI").innerHTML="Underweight";}
+        {     bmi_result="Underweight"; bad_health++; }
         else if(bmi>18.5 && bmi<24.9)
-        {document.getElementById("btnBMI").innerHTML="Normal Weight"; health_rating+=1;}
-        else if(bmi>25.0 && bmi<29.9)
-        {document.getElementById("btnBMI").innerHTML="Over Weight";}
-        else if(bmi>=30)
-        {document.getElementById("btnBMI").innerHTML="Obesity";}
-    }
-    else if(option == "3")
-    {
-        var HDL=document.getElementById("hdl").value;
-        var LDL=document.getElementById("ldl").value;
-        if(HDL>40 && HDL<60)
-        {document.getElementById("btnSugar").innerHTML="Normal"; health_rating+=1;}
-        else
-        {document.getElementById("btnSugar").innerHTML="Risk";}
-        if(LDL>100 && LDL<130)
-        {document.getElementById("btnSugar").innerHTML="Normal"; health_rating+=1;}
-        else
-        {document.getElementById("btnSugar").innerHTML="Risk";}
-    }
-    else if(option == "4")
-    {
-        var alc=document.getElementById("alc");
-        if(alc.checked==true)
-        { alert("alchol");}
-    }
-    else if(option == "5")
-    { 
-        var water=document.getElementById("water").value;
-        if(water>=2)
         {
-            document.getElementById("pSugar").innerHTML="Good";
             health_rating+=1;
+            bmi_result="Normal Weight";
         }
-    }
-    else if(option == "6")
-    {
-        var sleep=document.getElementById("sleep").value;
-        if(sleep<7)
-        {document.getElementById("pSleep").innerHTML="According to doctors we should <br> sleep for minium for 7Hrs outof 24hrs";}
-    }
-    else if(option=="7")
-     alert(health_rating);
+        else if(bmi>25.0 && bmi<29.9)
+        {   bmi_result="Over Weight";   bad_health++;  }
+        else if(bmi>=30)
+        {   bmi_result="Obesity";     bad_health++;  }
+
+        HDL=document.getElementById("hdl").value;
+        LDL=document.getElementById("ldl").value;
+        if((HDL>40 && HDL<60) && (LDL>100 && LDL<130))
+        {
+            health_rating+=1;
+            cholestrol_result="Normal";
+        }
+        else
+        {   cholestrol_result="Risk";  bad_health++; }
+        
+
+        water=document.getElementById("water").value;
+        if(water>=2)
+        {   health_rating+=1; }
+        else
+            bad_health++;
+
+        nodrink=document.getElementById("no");
+        if(nodrink.checked==true)
+        { health_rating++; }
+        else
+            bad_health++;
+
+        alergies=document.getElementById("alg_yes");
+        if(alergies.checked==true)
+        { health_rating++; }
+        else
+            bad_health++;
+
+        genetic=document.getElementById("g_diseases");
+        if(genetic.checked==true)
+        { health_rating++; }
+
+        sleep=document.getElementById("sleep").value;
+        if(sleep>7)
+        { health_rating++; }
+            bad_health++;
+
+        tied=document.getElementById("tiedness");
+        if(tied.checked==true)
+        { bad_health++; }
+
+        appitite=document.getElementById("appitite");
+        if(appitite.checked==true)
+        { bad_health++; }
+
+        stamina=document.getElementById("stamina");
+        if(stamina.checked==true)
+        { bad_health++; }
+
+            health_status=(health_rating)/(health_rating+bad_health);
+            health_status*=100;
+        alert("BP: "+pressure_result+
+              "\nBMI: "+bmi_result+
+              "\nCholestrol: "+cholestrol_result+
+              "\n Health Status: "+health_status.toFixed(2)+"%");
+        
 }
