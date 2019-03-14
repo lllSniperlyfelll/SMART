@@ -3,14 +3,28 @@
 <head>
         <title>SMART Report</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="w3.css">
+        <link rel="stylesheet" href="../css/w3.css">
         <link rel="stylesheet" href="..\css\mystyle.css">
         <link rel="stylesheet" href="../css/w3-colors-metro.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script type="text/javascript" src="../external_libs/Reporthandler.js"></script>
 </head>
-<body style="background-color:greenyellow;">
-    <table align="center" width="90%" height="90%" cellspacing="15">
+<body  class="w3-light-blue">
+            <div class="w3-animate-zoom w3-card-4 w3-container w3-metro-blue w3-top w3-mobile" style="width:100%;height:62px;z-index: 100">
+            <table border="0" class="w3-animate-zoom w3-display-topmiddle">
+                <tr>
+                    <td style="text-align: center;"> <font class=" w3-animate-fade w3-wide w3-xlarge " style="font-family: cursive"> SMART</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td><font class="w3-animate-fade  w3-wide w3-tiny w3-opacity-min" style="font-family: cursive"> (Simple Medical Assistant for Rapid Treatment)</font>
+                    </td>
+                </tr>
+                
+            </table>
+
+    </div><br><br><br>
+    <table align="center" width="90%" height="90%" cellspacing="15" class="w3-animate-left">
         <tr class="w3-card 4 w3-teal w3-center w3-container w3-padding-24 w3-round-large">
 
         </tr>
@@ -41,37 +55,81 @@
         <tr colspan="3">
             <td class="w3-card 4 w3-white w3-center w3-container w3-padding-24 w3-round-large">
                 <h2> Few More To Know </h2><br><br>
-                    <div class="w3-margin">
-                            <input type="checkbox" id="alc" class="w3-padding">Alcohol
-                            <input type="checkbox" id="smk" class="w3-padding">Smoking<br>
-                            <input type="checkbox" id="tob" class="w3-padding">Tobacco
-                            <input type="checkbox" id="no" class="w3-padding">None of these
+                    <div class="w3-margin w3-metro-blue w3-card-4 w3-round-small" style="text-align: center;width:90%;border-collapse: collapse;">
+                        <center>
+                        <table border="0" cellpadding="10">
+                            <tr>
+                                <td  style="text-align: left">
+                                    <input type="checkbox" id="alc" class="w3-padding w3-card-4 w3-border w3-xlarge"   style="border:none">&nbsp;&nbsp;Alcohol
+                                </td>
+                                <td style="text-align: left">
+                                    <input type="checkbox" id="smk" class="w3-padding w3-card-4 w3-border w3-xlarge" style="border:none">&nbsp;&nbsp;Smoking
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left">
+                                                               <input type="checkbox" id="tob" class="w3-padding w3-card-4 w3-border w3-xlarge" style="border:none">&nbsp;&nbsp;Tobacco
+
+                                </td>
+                                <td style="text-align: left">
+                             <input type="checkbox" id="no" class="w3-padding w3-card-4 w3-border w3-xlarge" style="border:none">&nbsp;&nbsp;None of these       
+                                </td>
+                            </tr>
+                        </table>
+                            </center>
+                            <br>
+                             
                     </div>
                     <br>
-                    <div class="w3-border w3-margin">
-                        <p>Any algergies</p><input type="radio" id="alg_yes" name="algergies"class="w3-padding">Yes
-                        <input type="radio" name="algergies"class="w3-padding">No<br>
+                    <div class=" w3-margin w3-metro-blue w3-card-4 w3-round-small" style="text-align: center;width:90%;border-collapse: collapse;">
+                        <p>Any algergies</p><input type="radio" id="alg_yes" name="algergies"class="w3-round-xxlarge w3-card-4 w3-padding w3-radio">Yes&nbsp;&nbsp;
+                        <input type="radio" name="algergies" id="alg_yes" class="w3-card-4 w3-round-xxlarge w3-padding w3-radio">No<br><br>
                     </div>
+
                     <br>
-                    <div class="w3-border w3-margin">
-                        <p>Any Hereditary dieases</p><input type="radio" id="g_diseases" name="genetic_d" class="w3-padding">Yes
-                        <input type="radio" name="genetic_d" class="w3-padding">No<br>
+                        <div class=" w3-margin w3-metro-blue w3-card-4 w3-round-small" style="text-align: center;width:90%;border-collapse: collapse;">
+                        <p>Any Hereditary dieases</p><input type="radio" id="g_diseases" name="g_algergies"class="w3-round-xxlarge w3-card-4 w3-padding w3-radio">Yes&nbsp;&nbsp;
+                        <input type="radio" name="g_algergies" id="g_diseases" class="w3-card-4 w3-round-xxlarge w3-padding w3-radio">No<br><br>
                     </div>
+
             </td>
 
             <td class="w3-card 4 w3-white w3-center w3-container w3-padding-24 w3-round-large" colspan="3">
-                <h2> Few More To Know </h2><br><br>
-                <input type="number"id="water" placeholder="Liters of water your drink in a day" class="w3-input w3-bottombar w3-border-blue w3-padding"/>
+                <h2 class="w3-wide w3-xxlarge" > Almost Done ! :-) </h2><br><br>
+                <input type="number"id="water" placeholder="Liters of water your drink in a day" class="w3-input w3-bottombar w3-border-blue w3-padding"/required><br><br>
                 <input type="number"id="sleep" placeholder="How many hrs do u sleep in a day" class="w3-input w3-bottombar w3-border-blue w3-padding"/>
                 <br>
-                <div class="w3-border w3-margin">
-                    <p>Checkout below option</p><br>
-                    <input type="checkbox" id="tiedness" class="w3-padding">Feeling tied after a small walk<br>
-                    <input type="checkbox" id="appitite" class="w3-padding">Lose of appitite<br>
-                    <input type="checkbox" id="stamina" class="w3-padding">Less stamina<br>
+
+
+                <div class="w3-margin w3-light-blue w3-card-4 w3-round-small" style="text-align: center;width:95%;border-collapse: collapse;">
+                    <p class="w3-text-white w3-large">Checkout below option</p><br>
+                    <center>
+                        
+
+                    <table border="0" cellpadding="10">
+                        <tr>
+                            <td style="text-align: left;font-family: cursive;font-weight: bolder;" class="w3-text-white">
+                    <input type="checkbox" id="tiedness" class="w3-padding  w3-large">&nbsp;&nbsp;Feeling tied after a small walk<br>                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;font-family: cursive;font-weight: bolder;" class="w3-text-white">
+                    <input type="checkbox" id="appitite" class="w3-padding w3-large">&nbsp;&nbsp;Lose of appitite<br>                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;font-family: cursive;font-weight: bolder;" class="w3-text-white">
+                    <input type="checkbox" id="stamina" class="w3-padding w3-large">&nbsp;&nbsp;Less stamina<br>                                
+                            </td>
+                        </tr>
+                    </table>
+                                        </center>
+
+
+
 
                 </div>
-                <button onclick="analyze()">Generate Health Report</button>
+                <button onclick="analyze()" class="w3-btn w3-metro-blue w3-card-4 w3-round-small" style="width:90%">Generate Health Report</button>
             </td>
         </tr>
 
