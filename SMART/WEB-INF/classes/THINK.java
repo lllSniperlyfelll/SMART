@@ -28,6 +28,24 @@ public class THINK
 		return true;
 	}
 
+
+	int getLargestProbability(ArrayList<Double>symptom_probablities)
+	{
+		double small=-1;
+		int index=0;
+		for(int i=0;i<symptom_probablities.size();i++)
+		{
+			Double data_instance=symptom_probablities.get(i);
+			if(data_instance!=0 && small<=data_instance)
+			{
+				small=data_instance;
+
+				index=i;
+			}
+		}
+		System.out.println("Small -> "+small);
+		return (index);
+	}
 	ArrayList <String> getSymptomCluster(MAKECLASS MC,String feature_disease_val)
 	{
 		ArrayList<String> Symptoms=new ArrayList<>();
@@ -45,12 +63,34 @@ public class THINK
 		}
 		return(Symptoms);
 	}
+
+
+	ArrayList <String> getDaysCluster(MAKECLASS MC,String feature_disease_val)
+	{
+		ArrayList<String> Days=new ArrayList<>();
+		Days.clear();
+		Iterator itr=MC.raw_classes.iterator();
+		Iterator itr_symps=MC.days.iterator();
+		while(itr.hasNext() && itr_symps.hasNext())
+		{
+			String raw_classes_val=itr.next().toString().toLowerCase();
+			String raw_days=itr_symps.next().toString().toLowerCase();
+			if(raw_classes_val.equals(feature_disease_val))
+			{
+				Days.add(raw_days);
+			}
+		}
+		return(Days);
+	}
+
+
 	void diseasePrediction(ArrayList<String> isymptoms,ArrayList<String> idays,MAKECLASS MC,ArrayList<Double> class_count,ArrayList<Double> class_probability)
 	{
 		Iterator itr=MC.feature_classes.iterator();
 		Iterator class_count_itr=class_count.iterator();
 		Iterator class_probability_itr = class_probability.iterator();
 		ArrayList<String> sym_cluster=new ArrayList<>();
+		ArrayList<String> days_cluster=new ArrayList<>();
 		ArrayList<Double> symptom_probablities=new ArrayList<>();
 
 		while(itr.hasNext() && class_count_itr.hasNext() && class_probability_itr.hasNext())
@@ -60,34 +100,65 @@ public class THINK
 			Double class_probability_val=Double.parseDouble(class_probability_itr.next().toString());
 
 			sym_cluster.clear();
+			days_cluster.clear();
+
 			sym_cluster.addAll(getSymptomCluster(MC,feature_disease_val));
-			System.out.println("feature_disease_val -> "+feature_disease_val+" And  Symptoms cluster ->" +sym_cluster);
+			days_cluster.addAll(getDaysCluster(MC,feature_disease_val));
+
+			//System.out.println("feature_disease_val -> "+feature_disease_val+" And  Symptoms cluster ->" +sym_cluster);
+			//System.out.println("feature_disease_val -> "+feature_disease_val+" And  Days cluster ->" +days_cluster);
 			Iterator input_symptoms_itr=isymptoms.iterator();
+			Iterator input_days_itr=idays.iterator();
+
 			ArrayList<Double> temp_probabilities=new ArrayList<>();
 			temp_probabilities.clear();
+			ArrayList<Double> days_temp_probabilities=new ArrayList<>();
+			days_temp_probabilities.clear();
 
-			while(input_symptoms_itr.hasNext())
+			while(input_symptoms_itr.hasNext() && input_days_itr.hasNext())
 			{
 				String isym=input_symptoms_itr.next().toString().toLowerCase();
+				String ipdays=input_days_itr.next().toString();
+
 				double sym_count=0;
+				double days_count=0;
 				Iterator sym_cluster_itr=sym_cluster.iterator();
-				while(sym_cluster_itr.hasNext())
+				Iterator days_cluster_itr=days_cluster.iterator();
+
+				while(sym_cluster_itr.hasNext()  && days_cluster_itr.hasNext())
 				{
+					String days_cluster_val=days_cluster_itr.next().toString();
 					String sym_cluster_val=sym_cluster_itr.next().toString().toLowerCase();
+
 					if(sym_cluster_val.equals(isym))
 					{
 						sym_count++;
 					}
+
+					if(days_cluster_val.equals(ipdays))
+					{
+						days_count++;
+					}
 				}
-				System.out.println("symptom match count -> "+sym_count);
-				System.out.println("Symptom match count / class_count_val : "+sym_count+"/"+class_count_val);
+				
+				//System.out.println("symptom match count -> "+sym_count);
+				//System.out.println("days match count -> "+days_count);
+				Double days_count_new=days_count/class_count_val;
+				//System.out.println("Symptom match count / class_count_val : "+sym_count+"/"+class_count_val);
 				Double sym_count_new=sym_count/class_count_val;
-				System.out.println("Symptom match count new value -> "+sym_count_new);
+				//System.out.println("Symptom match count new value -> "+sym_count_new);
 				temp_probabilities.add(sym_count_new);
+				days_temp_probabilities.add(days_count_new);
 
 
 			}
-		System.out.println(" Above added to array list ->"+temp_probabilities);
+			if(arrayIsAllZero(days_temp_probabilities)==false)
+			{
+				if(arrayIsAllZero(temp_probabilities)==false)
+				{
+					temp_probabilities.addAll(days_temp_probabilities);
+				}
+			}
 		if(arrayIsAllZero(temp_probabilities)==false)
 			{
 				Iterator itrr=temp_probabilities.iterator();
@@ -102,11 +173,7 @@ public class THINK
 						product*=value;
 					}
 				}
-				System.out.println("product value is -> "+product);
-				System.out.println("after multiplying product value with class probability"+product+"*"+class_probability_val);
 				product*=class_probability_val;
-				System.out.println("val of product is product -> "+product);
-
 				symptom_probablities.add(product);
 
 			}
@@ -116,51 +183,9 @@ public class THINK
 
 		}
 		System.out.println("Final symptom_probablities are -> "+symptom_probablities);
-		//System.out.println("feature_classes ->"+MC.feature_classes);
-		/*System.out.println("MC.symptoms -> "+MC.symptoms);
-		while(itr.hasNext())
-		{
-			//System.out.println("In loop 1");
-			String feature_disease=itr.next().toString();
-			feature_disease=feature_disease.toLowerCase();
-
-			Iterator itr1=MC.raw_classes.iterator();
-			Iterator raw_sym_itr=MC.symptoms.iterator();
-
-			while(itr1.hasNext() && raw_sym_itr.hasNext())
-			{*/
-							//System.out.println("In loop 2");
-				/*String raw_disease=itr1.next().toString();
-				
-				String raw_symptoms=raw_sym_itr.next().toString();
-
-				raw_symptoms=raw_symptoms.toLowerCase();
-
-				raw_disease=raw_disease.toLowerCase();
-				System.out.println("raw_symptoms -> "+raw_symptoms);
-
-				feature_disease=itr.next().toString().toLowerCase();
-				if(raw_disease.equals(feature_disease))
-					{				
-					Iterator itr2=isymptoms.iterator();
-					while(itr2.hasNext())
-					{*/
-									//System.out.println("In loop 3");
-						//String isym=itr2.next().toString().toLowerCase();
-						//
-
-						/*if(isym.equals(raw_symptoms))
-							System.out.println("raw_disease ->  "+raw_disease+"  feature_disease -> "+feature_disease);
-							System.out.println("SYmptom -> "+ isym);
-						*/
-
-				//	}
-
-				//}
-				//	else
-				//		break;
-				
-			//}
+		int max_probability_index=getLargestProbability(symptom_probablities);
+		System.out.println("Disease predicted is -> "+MC.feature_classes.get(max_probability_index));
+		System.out.println("Dataset disease -> "+MC.feature_classes);
 		}
 	
 	void getClassProbability(MAKECLASS MC)
@@ -198,13 +223,6 @@ public class THINK
 	 	MAKECLASS MC=new MAKECLASS();
 	 	System.out.println("Called MAKECLASS from think");
 	 	MC.MakeClass();
-
-	//	System.out.println("Total Number of disease -> "+MC.count);
-	//	System.out.println("og classes -> "+MC.raw_classes);
-	//	System.out.println("feature_classes classes -> "+MC.feature_classes);
-	//	System.out.println("Symptoms-> "+MC.symptoms);
-	//	System.out.println("Days-> "+MC.days);
-	//	System.out.println("Input Symptoms from THINK-> "+input_symptoms);
 		this.ip_symptoms.addAll(input_symptoms);
 		Iterator itr=input_days.iterator();
 		while(itr.hasNext())
@@ -212,7 +230,6 @@ public class THINK
 		 	String j=itr.next().toString();
 		 	this.ip_days.add(j);
 		 }
-		 //System.out.println("Input days from THINK ->"+ip_days);
 		 		 getClassProbability(MC);
 	}
 }
