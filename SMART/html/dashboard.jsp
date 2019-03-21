@@ -211,12 +211,15 @@ String login="not";
     </div>    <br><br><br><br>
 
     
-    <table align="center" width="90%">
+    <!-- <table align="center" width="90%">
         <tr>
-            <td align="center"><div id="slide" class="w3-animate-zoom   w3-xlarge  w3-text-white card bg-primary w3-hover-light-blue">
+            <td align="center">
+                <a href="symptoms_analysis.html" style="text-decoration: none">
+                    <div id="slide" class="w3-animate-zoom   w3-xlarge  w3-text-white card bg-primary w3-hover-light-blue">
                     <div class="w3-animate-zoom card-img-top w3-medium"/>
                 <div class="w3-animate-zoom card-body"><h1>Symtoms Analysis</h1><br>Give Your Symtoms<br> & know about diesease</div>
-            </div></td>
+            </div></a>
+        </td>
             <td align="center"><div class="text-white">
                     <div class="w3-animate-zoom card-body"><h1>Health Analysis</h1><br>Generate Health<br>Report<br><br></div>
             </div></td>
@@ -249,6 +252,82 @@ String login="not";
         	</td>
         </tr>
     </table><br><br><br><br><br><br>
+ -->
+
+
+
+ <br><br>
+<div class="w3-bar w3-indigo w3-card-4 w3-hover-blue">
+
+    <center><label class="w3-text-white w3-xlarge ">How Can I Help You ? .....</label></center>
+    </div>
+<br>
+    <table border="0"  cellpadding="22" cellspacing="30" align="center" style="width:80%;margin-left: 10%">
+        <tr >
+            <td>
+                <a href="symptoms_analysis.html" style="text-decoration: none">
+                <div id="slide" class="w3-animate-zoom  w3-text-white w3-card-4 w3-metro-blue w3-display-container " style="width:100%;height: 300px;text-align: center;">
+                   <!--  <div class="w3-animate-zoom card-img-top w3-medium"/> -->
+                   <img src="../image/sym.gif" width="100%" height="300px" style="z-index: -1" class="w3-opacity-max">
+                <label class="w3-text-white blink_me w3-display-middle" style="font-family: cursive;font-weight: bold;z-index: 1"><h1 style="font-weight: bolder;">Symtoms Analysis</h1><br>Give Your Symtoms<br> & know about diesease</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </a>
+
+            </td>
+            <td>
+
+                                <% 
+            if(login.equalsIgnoreCase("not"))
+            {
+            out.write("<div id='slide' class='w3-animate-zoom  w3-text-white w3-card-4 w3-metro-blue w3-display-container ' style='width:70%;height: 300px;text-align: center;'><img src='../image/report_tile.png' width='100%' height='300px' style='z-index: -1' class='w3-opacity-max'><label class='w3-text-white w3-display-middle' style='font-family: cursive;font-weight: bold'><br><br><br><h1 style='font-weight: bolder;'>Health checkup</h1><br>Analysis of Health<br><br><br></label></div>");
+             }
+            else
+            {
+                out.write("<div id='slide' class='w3-animate-zoom  w3-text-white w3-card-4 w3-grey w3-display-container ' style='width:70%;height: 300px;text-align: center;'><img src='../image/report_tile.png' width='100%' height='300px' style='z-index: -1' class='w3-opacity-max'><label class='w3-text-white w3-display-middle' style='font-family: cursive;font-weight: bold'><br><br><br><h1 style='font-weight: bolder;'>Login Needed</h1><br>Analysis of Health<br><br><br></label></div>");
+            }
+            %>
+                
+
+            </td>
+        </tr>
+            <tr >
+
+            <td>
+
+
+                            <% 
+            if(login.equalsIgnoreCase("not"))
+            {
+            out.write("<div id='slide' class='w3-animate-zoom  w3-text-white w3-card-4 w3-metro-blue w3-display-container ' style='width:75%;height: 300px;text-align: center;'><img src='../image/report_tile_og.jpg' width='100%' height='300px' style='z-index: -1' class='w3-opacity-max'><label class='w3-text-white w3-display-middle' style='font-family: cursive;font-weight: bold'><br><br><br><h1 style='font-weight: bolder;'>Reports</h1><br>Know about Medical Reports<br></label></div>");
+             }
+            else
+            {
+                out.write("<div id='slide' class='w3-animate-zoom  w3-text-white w3-card-4 w3-grey  w3-display-container ' style='width:75%;height: 300px;text-align: center;'><img src='../image/report_tile_og.jpg' width='100%' height='300px' style='z-index: -1' class='w3-opacity-max'><label class='w3-text-white w3-display-middle' style='font-family: cursive;font-weight: bold'><br><br><br><h1 style='font-weight: bolder;'>Login Needed</h1><br>Know about Medical Reports<br></label></div>");
+            }
+            %>
+
+            
+
+            </td>
+                        <td>
+                <div id="slide" class="w3-animate-zoom  w3-text-white w3-card-4 w3-metro-blue w3-display-container " style="width:80%;height: 300px;text-align: center;">
+                   <!--  <div class="w3-animate-zoom card-img-top w3-medium"/> -->
+                   
+                   <img src="../image/giphy.gif" width="100%" height="300px" style="z-index: -1" class="w3-opacity-max">
+                <label class="w3-text-white w3-display-middle" style="font-family: cursive;font-weight: bold"><h1 style="font-weight: bolder;">Diet Chart</h1><br>Get information about your<br>diet to prevent diseases
+                    </label></div>
+
+            </td>
+        </tr>
+
+    </table>
+    <br><br><br>
+    <div class="w3-bar w3-indigo w3-card-4 w3-hover-blue">
+
+    <center><label class="w3-text-white w3-xlarge ">Have You Checked Your BMI !</label></center>
+    </div>
+<br>
+<br>
 
     <div class="w3-animate-zoom w3-container ">
     	<table style="width:100%" border ="0">
@@ -256,11 +335,19 @@ String login="not";
     			<td style="text-align: center;"> 
     				<img src="../image/BMI chart.jpg" id="bmichart" alt="Lights" width="70%" height="440px" class="w3-animate-zoom w3-margin-left w3-card-2">
     			</td>
-    			<td style="width: 50%">
+    			<td style="width: 50%" colspan="0">
     				<div class="w3-animate-zoom w3-container white">
 
-    					<table class="w3-animate-zoom  w3-container w3-margin-right" width="450px">
+    					<table class="w3-animate-zoom  w3-container w3-margin-right" width="450px" border="0">
     						<tr>
+                            
+                                                                    <td  colspan="2" style="text-align: center;">
+                                    <img src="../image/bmi_meter.gif" width="300" height="63" class="w3-round-large w3-opacity-min w3-card-4">
+                                
+                                </td>
+                            </tr>
+                            <tr>
+
     							<td>
     								<br>
     								<div class="w3-animate-zoom w3-container w3-metro-blue w3-card-4" style="text-align: center;">
@@ -285,6 +372,8 @@ String login="not";
                     </tr>
             		
             		</table>
+
+
     				</div>
     			</td>
     		</tr>
@@ -341,6 +430,13 @@ String login="not";
             <td class="sidetab"><button class="w3-white w3-bar w3-border-blue" onclick="openTab('food')">Diet</button></td>
         </tr>
     </table>-->
+     <br><br><br>
+<div class="w3-bar w3-indigo w3-card-4 w3-hover-blue">
+
+    <center><label class="w3-text-white w3-xlarge ">Facts Are Always Good To Be Known :-) </label></center>
+    </div>
+<br>
+<br>
 	
 	<center>
 		<div class="w3-animate-zoom slide_end w3-white w3-container" style="width:100%;height:100%;text-align: right;" >
