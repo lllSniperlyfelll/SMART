@@ -4,9 +4,10 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
-import DataStore.STOREDATA;
+//import DataStore.STOREDATA;
 import PredictionLogic.MAKECLASS;
 import PredictionLogic.THINK;
+import DataStorage.STORAGE;
 
 public class CORE extends HttpServlet
 {
@@ -16,7 +17,7 @@ public class CORE extends HttpServlet
 				for(char itr:val.toCharArray())
 				{
 					if(Character.isDigit(itr)==true)
-						flag=true;
+						flag=true; 
 					else
 					{
 						flag=false;
@@ -65,7 +66,14 @@ public class CORE extends HttpServlet
 				System.out.println("Days values -> "+days);
 				THINK T=new THINK();
 				System.out.println("Called think");
-				T.getPrintData(symptom,days);
+				HttpSession session1=null;
+				session1=request.getSession(false);
+				String s_key=(String)(session1.getAttribute("email"));
+				if(s_key!=null)
+				T.getPrintData(symptom,days,s_key);
+			response.sendRedirect("html/Result_page.jsp");
+				/*STORAGE S=new STORAGE();
+				S.SUB_STORAGE_get();*/
 				//SD.setData(symptom,days);
 				//GSD.getPrintData();
 
