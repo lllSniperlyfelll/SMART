@@ -12,11 +12,15 @@
 
 <%!
 public String dis="";
+public String sym_data="";
+public String days_data="";
 %>
 
 <%
 
 ArrayList<String> data=new ArrayList<String>();
+ArrayList<String> days=new ArrayList<String>();
+ArrayList<String> symp=new ArrayList<String>();
 data.clear();
 STORAGE S=new STORAGE();
 data.addAll(S.SUB_STORAGE_get());
@@ -33,6 +37,35 @@ data.addAll(S.SUB_STORAGE_get());
             if(itr.next().toString().equals(dis))
                 itr.remove();
 
+        }
+        Iterator itr1=data.iterator();
+        while(itr1.hasNext())
+        {
+            String val=itr1.next().toString();
+            char array[]=val.toCharArray();
+            for(char r:array)
+            {
+                if(Character.isDigit(r)==false)
+                {
+                    days.add(val);
+                    break;
+                }
+                else
+                {
+                    symp.add(val);
+                    break;
+                }
+            }
+        }
+
+        Iterator itr2=symp.iterator();
+        Iterator itr3=days.iterator();
+
+        while(itr2.hasNext() && itr3.hasNext())
+        {
+            sym_data+="<tr>";
+            sym_data+="<td> <font style='font-weight: bolder;' class='w3-text w3-xlarge'><i class='fa fa-plus-square w3-large'></i>&nbsp;&nbsp;"+itr3.next().toString()+"</td></font><td><font style='font-weight: bolder;' class='w3-text w3-xlarge'><i class='fa fa-bed'></i> &nbsp;&nbsp;"+itr2.next().toString()+" days</td></font>";
+            sym_data+="</tr>";
         }
     }  
 
@@ -101,7 +134,7 @@ data.addAll(S.SUB_STORAGE_get());
         <hr style="border-color: white">
         <br>
         <center><table class="w3-table w3-text-white" style="font-weight: bolder;width: 80%" border="0">
-            <tr>
+            <!-- <tr>
                 <td> <font style="font-weight: bolder;" class="w3-text w3-xlarge"><i class="fa fa-plus-square w3-large"></i>  Fever</td></font>
                 <td><font style="font-weight: bolder;" class="w3-text w3-xlarge"><i class="fa fa-bed"></i>  5 days</td></font>
             </tr>
@@ -128,7 +161,8 @@ data.addAll(S.SUB_STORAGE_get());
             <tr>
                 <td><font style="font-weight: bolder;" class="w3-text w3-xlarge"><i class="fa fa-plus-square w3-large"></i>  Diarrea</td> </font>
                 <td><font style="font-weight: bolder;" class="w3-text w3-xlarge"><i class="fa fa-bed"></i>  5 days</td></font>
-            </tr>
+            </tr> -->
+            <% out.write(sym_data); %>
         </table></center>
     </div></center>
 
