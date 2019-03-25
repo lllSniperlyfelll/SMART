@@ -4,6 +4,8 @@ package PredictionLogic;
 import java.io.*;
 import java.util.*;
 import PredictionLogic.MAKECLASS;
+import DataStorage.STORAGE;
+
 
 public class THINK 
 {
@@ -11,7 +13,8 @@ public class THINK
 	ArrayList<Double> class_count=new ArrayList<Double>();
 	ArrayList<String> ip_days=new ArrayList<String>();
 	ArrayList<String> ip_symptoms=new ArrayList<String>();
-
+	static ArrayList<String> output_data=new ArrayList<>();
+	String se_key="";
 
 	boolean arrayIsAllZero(ArrayList<Double> list)
 	{
@@ -27,25 +30,21 @@ public class THINK
 				//		System.out.println("return true");
 		return true;
 	}
-
-
-	int getLargestProbability(ArrayList<Double>symptom_probablities)
+/*
+	boolean matchFound(ArrayList<Double> temp_probabilities,ArrayList<Double> days_temp_probabilities)
 	{
-		double small=-1;
-		int index=0;
-		for(int i=0;i<symptom_probablities.size();i++)
-		{
-			Double data_instance=symptom_probablities.get(i);
-			if(data_instance!=0 && small<=data_instance)
-			{
-				small=data_instance;
 
-				index=i;
-			}
-		}
-		System.out.println("Small -> "+small);
-		return (index);
-	}
+		System.out.println("!!!!!!!!Matching!!!!!!");
+
+		if(temp_probabilities.contains(0.0)==true || days_temp_probabilities.contains(0.0)==true)
+			return false;
+		
+		System.out.println("!!!!!!!Match Found!!!!!!!");
+
+		return true;
+
+	}*/
+
 	ArrayList <String> getSymptomCluster(MAKECLASS MC,String feature_disease_val)
 	{
 		ArrayList<String> Symptoms=new ArrayList<>();
@@ -91,7 +90,8 @@ public class THINK
 		Iterator class_probability_itr = class_probability.iterator();
 		ArrayList<String> sym_cluster=new ArrayList<>();
 		ArrayList<String> days_cluster=new ArrayList<>();
-		ArrayList<Double> symptom_probablities=new ArrayList<>();
+		ArrayList<Double> symptom_probablities=new ArrayList<Double>();
+		this.output_data.clear();
 
 		while(itr.hasNext() && class_count_itr.hasNext() && class_probability_itr.hasNext())
 		{
@@ -130,15 +130,16 @@ public class THINK
 					String days_cluster_val=days_cluster_itr.next().toString();
 					String sym_cluster_val=sym_cluster_itr.next().toString().toLowerCase();
 
-					if(sym_cluster_val.equals(isym))
+					if(sym_cluster_val.equals(isym) && days_cluster_val.equals(ipdays))
 					{
 						sym_count++;
-					}
-
-					if(days_cluster_val.equals(ipdays))
-					{
 						days_count++;
 					}
+/*
+					if()
+					{
+
+					}*/
 				}
 				
 				//System.out.println("symptom match count -> "+sym_count);
@@ -150,15 +151,20 @@ public class THINK
 				temp_probabilities.add(sym_count_new);
 				days_temp_probabilities.add(days_count_new);
 
-
 			}
-			if(arrayIsAllZero(days_temp_probabilities)==false)
+		/*System.out.println("temp_probabilities sent for matching-> "+temp_probabilities);
+		System.out.println("days_temp_probabilities sent for matching-> "+days_temp_probabilities);
+		boolean flag=matchFound(temp_probabilities,days_temp_probabilities);*/
+		
+		 if(arrayIsAllZero(days_temp_probabilities)==false)
 			{
 				if(arrayIsAllZero(temp_probabilities)==false)
 				{
 					temp_probabilities.addAll(days_temp_probabilities);
 				}
 			}
+		
+
 		if(arrayIsAllZero(temp_probabilities)==false)
 			{
 				Iterator itrr=temp_probabilities.iterator();
@@ -180,13 +186,28 @@ public class THINK
 		else
 			symptom_probablities.add(0.0);
 
-
 		}
+		
+/*
+		if(flag==true)
+			break;*/
+		
+		
 		System.out.println("Final symptom_probablities are -> "+symptom_probablities);
-		int max_probability_index=getLargestProbability(symptom_probablities);
-		System.out.println("Disease predicted is -> "+MC.feature_classes.get(max_probability_index));
+		//getLargestProbability(symptom_probablities);
+		System.out.println("probablitiy index -> "+symptom_probablities.indexOf(Collections.max(symptom_probablities))+" : probablitiy ->"+symptom_probablities.get(symptom_probablities.indexOf(Collections.max(symptom_probablities)) ));
+		System.out.println("Disease predicted is -> "+MC.feature_classes.get(symptom_probablities.indexOf(Collections.max(symptom_probablities)))+" : index number ->"+symptom_probablities.indexOf(Collections.max(symptom_probablities)));
 		System.out.println("Dataset disease -> "+MC.feature_classes);
-		}
+		
+		output_data.add(MC.feature_classes.get(symptom_probablities.indexOf(Collections.max(symptom_probablities))));
+		output_data.addAll(isymptoms);
+		output_data.addAll(idays);
+		STORAGE S=new STORAGE();
+		S.STORAGE_set(output_data,this.se_key);
+
+
+		
+	}
 	
 	void getClassProbability(MAKECLASS MC)
 	{
@@ -218,8 +239,9 @@ public class THINK
 		diseasePrediction(this.ip_symptoms,this.ip_days,MC,class_count,class_probability);
 	}
 
- public void getPrintData(ArrayList<String> input_symptoms,ArrayList<Integer> input_days)
+ public void getPrintData(ArrayList<String> input_symptoms,ArrayList<Integer> input_days,String session_name)
 	 {
+	 	this.se_key=session_name;
 	 	MAKECLASS MC=new MAKECLASS();
 	 	System.out.println("Called MAKECLASS from think");
 	 	MC.MakeClass();
