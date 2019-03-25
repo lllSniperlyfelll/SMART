@@ -265,12 +265,16 @@ String login="not";
     <table border="0"  cellpadding="22" cellspacing="30" align="center" style="width:80%;margin-left: 10%">
         <tr >
             <td>
-                <a href="symptoms_analysis.html" style="text-decoration: none">
-                <div id="slide" class="w3-animate-zoom  w3-text-white w3-card-4 w3-metro-blue w3-display-container " style="width:100%;height: 300px;text-align: center;">
-                   <!--  <div class="w3-animate-zoom card-img-top w3-medium"/> -->
-                   <img src="../image/sym.gif" width="100%" height="300px" style="z-index: -1" class="w3-opacity-max">
-                <label class="w3-text-white blink_me w3-display-middle" style="font-family: cursive;font-weight: bold;z-index: 1"><h1 style="font-weight: bolder;">Symtoms Analysis</h1><br>Give Your Symtoms<br> & know about diesease</label>
-            &nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                     <% 
+            if(login.equalsIgnoreCase("not"))
+            {
+            out.write("<a href='symptoms_analysis.html' style='text-decoration: none'><div id='slide' class='w3-animate-zoom  w3-text-white w3-card-4 w3-metro-blue w3-display-container ' style='width:100%;height: 300px;text-align: center;'><img src='../image/sym.gif' width='100%' height='300px' style='z-index: -1' class='w3-opacity-max'><label class='w3-text-white blink_me w3-display-middle' style='font-family: cursive;font-weight: bold;z-index: 1'><h1 style='font-weight: bolder;'>Symtoms Analysis</h1><br>Give Your Symtoms<br> & know about diesease</label>&nbsp;&nbsp;&nbsp;&nbsp;</div></a>");
+            }
+            else
+            {
+             out.write("<div id='slide' class='w3-animate-zoom  w3-text-white w3-card-4 w3-grey w3-display-container ' style='width:100%;height: 300px;text-align: center;'><img src='../image/sym.gif' width='100%' height='300px' style='z-index: -1' class='w3-opacity-max'><label class='w3-text-white blink_me w3-display-middle' style='font-family: cursive;font-weight: bold;z-index: 1'><h1 style='font-weight: bolder;'>Login<br> needed</h1><br>Give Your Symtoms<br> & know about diesease</label>&nbsp;&nbsp;&nbsp;&nbsp;</div>");   
+            }
+            %>
         </a>
 
             </td>
@@ -279,7 +283,7 @@ String login="not";
                                 <% 
             if(login.equalsIgnoreCase("not"))
             {
-            out.write("<div id='slide' class='w3-animate-zoom  w3-text-white w3-card-4 w3-metro-blue w3-display-container ' style='width:70%;height: 300px;text-align: center;'><img src='../image/report_tile.png' width='100%' height='300px' style='z-index: -1' class='w3-opacity-max'><label class='w3-text-white w3-display-middle' style='font-family: cursive;font-weight: bold'><br><br><br><h1 style='font-weight: bolder;'>Health checkup</h1><br>Analysis of Health<br><br><br></label></div>");
+            out.write("<a href='generate_report.html' style='text-decoration:none;'><div id='slide' class='w3-animate-zoom  w3-text-white w3-card-4 w3-metro-blue w3-display-container 'style='width:70%;height: 300px;text-align: center;'><img src='../image/report_tile.png' width='100%' height='300px' style='z-index: -1' class='w3-opacity-max'><label class='w3-text-white w3-display-middle' style='font-family: cursive;font-weight: bold'><br><br><br><h1 style='font-weight: bolder;'>Health checkup</h1><br>Analysis of Health<br><br><br></label></div></a>");
              }
             else
             {
@@ -298,7 +302,7 @@ String login="not";
                             <% 
             if(login.equalsIgnoreCase("not"))
             {
-            out.write("<div id='slide' class='w3-animate-zoom  w3-text-white w3-card-4 w3-metro-blue w3-display-container ' style='width:75%;height: 300px;text-align: center;'><img src='../image/report_tile_og.jpg' width='100%' height='300px' style='z-index: -1' class='w3-opacity-max'><label class='w3-text-white w3-display-middle' style='font-family: cursive;font-weight: bold'><br><br><br><h1 style='font-weight: bolder;'>Reports</h1><br>Know about Medical Reports<br></label></div>");
+            out.write("<a href='report.html' style='text-decoration:none;'><div id='slide' class='w3-animate-zoom  w3-text-white w3-card-4 w3-metro-blue w3-display-container ' style='width:75%;height: 300px;text-align: center;'><img src='../image/report_tile_og.jpg' width='100%' height='300px' style='z-index: -1' class='w3-opacity-max'><label class='w3-text-white w3-display-middle' style='font-family: cursive;font-weight: bold'><br><br><br><h1 style='font-weight: bolder;'>Reports</h1><br>Know about Medical Reports<br></label></div></a>");
              }
             else
             {
