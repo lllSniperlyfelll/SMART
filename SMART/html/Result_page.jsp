@@ -14,16 +14,22 @@
 public String dis="";
 public String sym_data="";
 public String days_data="";
+ArrayList<String> data=new ArrayList<String>();
+ArrayList<String> days=new ArrayList<String>();
+ArrayList<String> symp=new ArrayList<String>();
 %>
 
 <%
 
-ArrayList<String> data=new ArrayList<String>();
-ArrayList<String> days=new ArrayList<String>();
-ArrayList<String> symp=new ArrayList<String>();
+dis="";
+sym_data="";
 data.clear();
+days.clear();
+symp.clear();
 STORAGE S=new STORAGE();
-data.addAll(S.SUB_STORAGE_get());
+    data.clear();
+    data.addAll(S.SUB_STORAGE_get());
+    System.out.println("data from result -> "+data);
     if(data.size()==0)
     {
         response.sendRedirect("noinput.html");
@@ -179,6 +185,12 @@ data.addAll(S.SUB_STORAGE_get());
                 <tr><td><font style="font-weight: bolder;" class="w3-text w3-large"><i class="fa fa-medkit"></i> Vist Docter</td></tr>
             </table>
     </div>
+    <br><br>
+    <a href="dashboard.jsp" style="text-decoration: none">
+    <div class="w3-right w3-margin-bottom w3-margin-right w3-round-small w3-button w3-container w3-metro-blue w3-card-4">
+        <font class="w3-text-white w3-xxlarge">Back to Dashboard</font>
+    </div>
+</a>
 </center>
     <center><h4>Take care & stay healthy</h4></center>
 </body>
