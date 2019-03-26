@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<title>SMART Diet Cart</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/w3.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/w3-colors-metro.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript">
+function openTab(cityName) {
+    var i;
+    var x = document.getElementsByClassName("city");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    document.getElementById(cityName).style.display = "block";  
+  }
+</script>
+<body>
+
+  <div class="w3-card w3-round" style="width:100%; height:500px;">
+    <div class="w3-display-container">
+        <img src="..\image\diet_chart_title.jpg" style="width:100%; height:500px;">
+        <div class="w3-display-right  w3-container">
+            <button class="w3-button w3-yellow w3-round-large" onmouseover="openTab('Balcaned')">Balanced Diet</button>
+            <button class="w3-button w3-yellow w3-round-large" onmouseover="openTab('diabetes')">Diet for diabetes</button>
+            <button class="w3-button w3-yellow w3-round-large" onmouseover="openTab('Weight_loss')">Diet for weight loss</button>
+            <button class="w3-button w3-yellow w3-round-large" onmouseover="openTab('pregnancy')">Diet for Pregnency</button>
+        </div>      
+      </div>
+</div>
+       
+<div id="Balcaned" class="w3-card-4 city">
+    <div class="w3-display-container ">
+        <img src="..\image\balance_diet.jpg" style="width:100%">
+        <div class="w3-medium w3-display-left w3-padding">
+            <table>
+              <tr>
+                <td class="w3-padding"><i class="fa fa-edit"></i> Breakfast</td>
+                <td class="w3-padding">Veg Poha/Upma,eggs,khichdi,salad</td>
+              </tr>
+              <tr>
+                  <td class="w3-padding"><i class="fa fa-edit"></i> Mid Morning Snacks </td>
+                  <td class="w3-padding">Nuts & seeds, a fruit bowl with nuts</td>
+              </tr>
+              <tr>
+                  <td class="w3-padding"><i class="fa fa-edit"></i> Lunch </td>
+                  <td class="w3-padding">Rice with dal,chicken/panner sandwich,salads</td>
+              </tr>
+              <tr>
+                  <td class="w3-padding"><i class="fa fa-edit"></i> Dinner</td>
+                  <td class="w3-padding">Rice, Roti with curry and lightly sauteed veggies and soup</td>
+              </tr>
+              </table>
+          </div>
+    </div>
+</div> 
+
+<div id="Weight_loss" class="w3-card-2 city" style="display:none">
+  <div class="w3-display-container ">
+    <img src="..\image\weight-loss.jpg" style="width:100%">
+    <div class="w3-medium w3-display-left w3-padding">
+        <table>
+          <tr>
+            <td class="w3-padding"><i class="fa fa-edit"></i>Fruits</td>
+            <td class="w3-padding">Apple, BlueBerries, Avocado</td>
+          </tr>
+          <tr>
+              <td class="w3-padding"><i class="fa fa-edit"></i> Cereals Snacks </td>
+              <td class="w3-padding">Oats, Goji berries,Almond Butter,Yougurt</td>
+          </tr>
+          <tr>
+              <td class="w3-padding"><i class="fa fa-edit"></i>Species & oil</td>
+              <td class="w3-padding">Olive Oil, wild salmon, lentits, chillies</td>
+          </tr>
+          <tr>
+              <td class="w3-padding"><i class="fa fa-edit"></i>Veg & Non-weg</td>
+              <td class="w3-padding">Kale, Fish(sardines),steek ,eggs, Tarragon</td>
+          </tr>
+          </table>
+    </div>
+  </div>
+</div>
+
+<div id="diabetes" class="w3-card-2 city" style="display:none">
+  <div class="w3-display-container ">
+    <img src="..\image\Diabetes.jpg" style="width:100%">
+    <div class="w3-medium w3-display-right w3-padding">
+      <table>
+        <tr>
+          <td class="w3-padding"><i class="fa fa-edit"></i>Fruits</td>
+          <td class="w3-padding">Apple, BlueBerries, Avocado</td>
+        </tr>
+        <tr>
+            <td class="w3-padding"><i class="fa fa-edit"></i> Cereals Snacks </td>
+            <td class="w3-padding">Oats,berries,Beans</td>
+        </tr>
+        <tr>
+            <td class="w3-padding"><i class="fa fa-edit"></i>Species & oil</td>
+            <td class="w3-padding">Olive Oil, wild salmon, lentits, chillies</td>
+        </tr>
+        <tr>
+            <td class="w3-padding"><i class="fa fa-edit"></i>Veg & Non-weg</td>
+            <td class="w3-padding">Spinach, Fish</td>
+        </tr>
+        </table>
+    </div>
+  </div>
+</div>
+
+<div id="pregnancy" class="w3-card-2 city" style="display:none">
+  <div class="w3-display-container ">
+    <img src="..\image\preganancy.bmp" style="width:100%">
+    <div class="w3-medium w3-display-left w3-padding">
+      <table>
+        <tr>
+          <td class="w3-padding"><i class="fa fa-edit"></i>Fruits</td>
+          <td class="w3-padding">Apple, Cherries, Avocado, Bananas, Papaya</td>
+        </tr>
+        <tr>
+            <td class="w3-padding"><i class="fa fa-edit"></i> Proteins </td>
+            <td class="w3-padding">Eggs, Beans, nuts, seafood, low-fat-cheese</td>
+        </tr>
+        <tr>
+            <td class="w3-padding"><i class="fa fa-edit"></i>Whole grains</td>
+            <td class="w3-padding">Oats, Wheat bread, Brown rice, beans, lentits, corn</td>
+        </tr>
+        <tr>
+            <td class="w3-padding"><i class="fa fa-edit"></i>Vegetables</td>
+            <td class="w3-padding">Leafy Vegetables, Broccoli, Carrots, Cabbage, peppers</td>
+        </tr>
+        </table>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>
