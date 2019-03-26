@@ -19,21 +19,28 @@
         <style type="text/css">
                 
         </style>
+
         <script type="text/javascript">
         
 $(document).ready(function(){
         var i=0;
         var flag=0;
+        var j=0;
+        $("#done").css("visibility","hidden");
         $("#btn").click(function(){
+            $("#done").css("visibility","visible");
+            $(".warn_text").css("visibility","hidden");
+            $(".ex_text").css("visibility","hidden");            
         i+=1;
         var t=0;
-        var j;
-        var tb="<tr><td style='text-align: center;width: 20%'><center><div class='w3-white w3-bar w3-card-4 w3-round-small' style='text-align: center;height:100%;width: 90%'><label class='w3-text w3-large'>Symptom</label></div></center></td><td style='width:40%'><input type='text' name='sym"+i+"' class='autocomplete w3-input w3-card-4 w3-round-small' placeholder='Enter Symptom'  style=';border-bottom: 2px solid blue ' required></td><td style='width: 20'><div class='w3-white w3-bar w3-card-4 w3-round-small' style='text-align: center;height:100%;width: 90%'><label class='w3-text w3-large'>How Many Days</label></div></td><td><input type='number' name='day"+i+"' class='w3-input w3-card-4 w3-round-small' placeholder='Days..' style='border-bottom: 2px solid blue;width:50%; ' required></td></tr>";
+
+        
         if(flag==0)
         {
                 for(;t<4;t++)
                 {
-                        var tbb="<tr><td style='text-align: center;width: 20%'><center><div class='w3-white w3-bar w3-card-4 w3-round-small' style='text-align: center;height:100%;width: 90%'><label class='w3-text w3-large'>Symptom</label></div></center></td><td style='width:40%'><input type='text' name='sym"+i+"' class='w3-input w3-card-4 w3-round-small autocomplete' placeholder='Enter Symptom' style=';border-bottom: 2px solid blue ' required></td><td style='width: 20'><div class='w3-white w3-bar w3-card-4 w3-round-small' style='text-align: center;height:100%;width: 90%'><label class='w3-text w3-large'>How Many Days</label></div></td><td><input type='number' name='day"+i+"' class='w3-input w3-card-4 w3-round-small' placeholder='Days..' style='border-bottom: 2px solid blue;width:50%; ' required></td></tr>";
+                    j+=1;
+                        var tbb="<tr><td style='text-align: center;width: 20%'><center><div class='w3-white w3-bar w3-card-4 w3-round-small' style='text-align: center;height:100%;width: 90%'><label class='w3-text w3-large'>Symptom"+j+"</label></div></center></td><td style='width:40%'><input type='text' name='sym"+i+"' class='w3-input w3-card-4 w3-round-small autocomplete' placeholder='Enter Symptom' style=';border-bottom: 2px solid blue ' required></td><td style='width: 20'><div class='w3-white w3-bar w3-card-4 w3-round-small' style='text-align: center;height:100%;width: 90%'><label class='w3-text w3-large'>How Many Days</label></div></td><td><input type='number' name='day"+i+"' class='w3-input w3-card-4 w3-round-small' placeholder='Days..' style='border-bottom: 2px solid blue;width:50%; ' required></td></tr>";
 
                        
                         $("#divv").append(tbb);
@@ -44,14 +51,39 @@ $(document).ready(function(){
         }
         else
                 {
+                    j+=1;
+                var tb="<tr><td style='text-align: center;width: 20%'><center><div class='w3-white w3-bar w3-card-4 w3-round-small' style='text-align: center;height:100%;width: 90%'><label class='w3-text w3-large'>Symptom"+j+"</label></div></center></td><td style='width:40%'><input type='text' name='sym"+i+"' class='autocomplete w3-input w3-card-4 w3-round-small' placeholder='Enter Symptom'  style=';border-bottom: 2px solid blue ' required></td><td style='width: 20'><div class='w3-white w3-bar w3-card-4 w3-round-small' style='text-align: center;height:100%;width: 90%'><label class='w3-text w3-large'>How Many Days</label></div></td><td><input type='number' name='day"+i+"' class='w3-input w3-card-4 w3-round-small' placeholder='Days..' style='border-bottom: 2px solid blue;width:50%; ' required></td></tr>";
                 $("#divv").append(tb);
                 }
         });
 
 });
 </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('.warn_text').each(function() {
+    var elem = $(this);
+    setInterval(function() {
+        elem.fadeIn(2000);
+               elem.fadeOut(2000);
+        /*if (elem.css('visibility') == 'hidden') {
+            elem.css('visibility', 'visible');
+        } else {
+            elem.css('visibility', 'hidden');
+        }*/    
+    }, 2000);
+});
+});
+</script>
                 <script type="text/javascript" src="../external_libs/jquery.autocomplete.min.js"></script>
         <script type="text/javascript" src="../external_libs/auto_correct_data.js"></script>
+        <style type="text/css">
+            .divs
+            {
+                transition: 1s;
+            }
+        </style>
+
 </head>
 
         <body class="w3-container">
@@ -74,9 +106,27 @@ $(document).ready(function(){
                                 
                         </table>
                 </div>
-        <form action="google" method="get">
-        <div class="w3-light-blue w3-display-middle w3-bar w3-card-4 w3-round-large w3-container" style="width:90%;">
-              
+        <form action="http://localhost:8080/SMART/data" method="get">
+
+        <div class="w3-light-blue w3-display-middle w3-bar w3-card-4 w3-round-large w3-container divs" style="width:90%;">
+                <center><font class="w3-xlarge w3-text-white ex_text " style="font-weight: bolder">
+                    Please Let me Know
+                </font>
+
+                <font class="w3-xlarge w3-text-red warn_text" style="font-weight: bolder">
+                    " alteast 4 Symptom's "
+                    </font>
+                <font class="w3-xlarge w3-text-white ex_text" style="font-weight: bolder">
+                    and the incubation period of same
+                    <br>
+                    </font>
+                    
+                <font class="w3-xlarge w3-text-white ">
+                    Click 'Add Symptom's to Continue Adding Symptom's'
+</font>
+
+                </center>
+
               <center>
                <table border="0"  cellpadding="11" cellspacing="9" style="width:80%" id="divv">
                 <tr>
@@ -91,7 +141,7 @@ $(document).ready(function(){
                 </center> 
                 
         </div>
-                        <button class="w3-container w3-display-topright w3-metro-blue w3-card-4 w3-button w3-card-4 w3-round-large"  style="height:99px;width: 109px;margin-top: 20%;">
+                        <button class="w3-container w3-display-topright w3-metro-blue w3-card-4 w3-button w3-card-4 w3-round-large"  style="height:99px;width: 109px;margin-top: 20%;" id="done">
                         <center><div class="w3-bar w3-button w3-round-large" style="background-color: transparent;">
                         <center><label class=" w3-text w3-large">
                                Done <br>&#x1F44D;<br>
