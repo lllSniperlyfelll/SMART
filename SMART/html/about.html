@@ -1,35 +1,51 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="../css/w3.css"> 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SMART About Us</title>
+	<link rel="stylesheet" href="../css/w3.css">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/w3-colors-flat.css">
-	<link rel="stylesheet" href="../css/w3-colors-metro.css">
-	<link rel="stylesheet" href="../css/w3-colors-win8.css">
-	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-win8.css">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
-	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
-
-   <body class="w3-container">
-
-   	<div class="w3-container w3-top  w3-metro-blue w3-card-4 w3-round-large" style="width:98%">
-	   		
-   		<img src="../image/logo.jpg" class="w3-image w3-round-large w3-card-4 w3-display-left " width="90" height="90">
-
-   		<center><label class="w3-wide w3-xxlarge "> <font class="w3-wide w3-xxlarge"  style="font-weight: bolder;font-family: cursive;"> S M A R T</font> </label><br>
-   		<label class="w3-wide w3-xxlarge "> <font class="w3-wide w3-large" style="font-weight: bolder;font-family: cursive;"> ( Simple Medical Assistant For Rapid Treatment )</font> </label>
-   		</center>
-   	</diV>
-   	
-   	<div class="w3-bar w3-blue w3-display-topmiddle w3-opacity-min w3-card-4" style="margin-top:10%;width:100%;text-align:center;background-image: url('../image/about_bar_back.png');background-size: cover"><br>
-   		<br>
-   		<center><font class="w3-text-white w3-jumbo w3-wide" style="font-weight: bolder;font-family: cursive"> ABOUT </font></center><br><br>
-   	</div>
-
-   	<span class="w3-jumbo w3-text-grey w3-display-middle" style="width: :100%"> </span><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-   </body>
-   </html>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+		  $("#dev1").mouseenter(function(){
+			$("#role1").replaceWith("Chandan Singh Rajpurohit");
+		  });
+		  $("#dev2").mouseenter(function(){
+			$("#role2").replaceWith("Rait Pravleen Singh");
+		  });
+		  $("#dev3").mouseenter(function(){
+			$("#role3").replaceWith("Harish Unnikrishnan");
+		  });
+		});
+	</script>
+	
+</head>
+<body>
+	<div class="w3-display-container w3-text-white  w3-animate-zoom">
+		<img src="..\image\slide2.jpg" width="100%" height="100%">
+		<div class="w3-display-left w3-margin w3-padding w3-opacity-min w3-topbar w3-rightbar w3-leftbar w3-bottombar w3-border-black w3-round">
+			<h1 class="w3-text-yellow">S M A R T</h1>  
+			<h5 class="w3-text-cyan">Simple Medical Assitant for Rapid Treatment</h5>
+			<p>
+				SMART was created with an intention to make people health consious. SMART helps the <br>
+				users to know about diseases and also know about the personal health status<br>
+				SMART uses machine learning algorithim to predict diseases. <br>
+				interact with user and let them to find their Dream home with ease  <br>
+			</p>
+			<div class=" w3-card w3-yellow w3-round w3-padding w3-margin w3-dropdown-hover" id="dev1">
+				<p id="role1">	databse by	</p>
+			</div>
+			<div class=" w3-card w3-yellow w3-round w3-padding w3-margin w3-dropdown-hover" id="dev2">
+				<p id="role2">	Backend by	</p>
+			</div>
+			<div class=" w3-card w3-yellow w3-round w3-padding w3-margin w3-dropdown-hover" id="dev3">
+				<p id="role3">	Frontend by	</p>
+			</div>
+		</div> 
+	</div> 
+	  
+</body>
+</html>
