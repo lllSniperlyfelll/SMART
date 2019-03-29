@@ -11,12 +11,14 @@
 
 
 <%!
+
 public String dis="";
 public String sym_data="";
 public String days_data="";
 ArrayList<String> data=new ArrayList<String>();
 ArrayList<String> days=new ArrayList<String>();
 ArrayList<String> symp=new ArrayList<String>();
+ArrayList<String> dis_info=new ArrayList<String>();
 %>
 
 <%
@@ -26,6 +28,7 @@ sym_data="";
 data.clear();
 days.clear();
 symp.clear();
+dis_info.clear();
 STORAGE S=new STORAGE();
     data.clear();
     data.addAll(S.SUB_STORAGE_get());
@@ -38,6 +41,7 @@ STORAGE S=new STORAGE();
     {
         Iterator itr=data.iterator();
         dis=data.get(0);
+        dis=dis.replace("_"," ");
         while(itr.hasNext())
         {
             if(itr.next().toString().equals(dis))
@@ -70,10 +74,64 @@ STORAGE S=new STORAGE();
         while(itr2.hasNext() && itr3.hasNext())
         {
             sym_data+="<tr>";
-            sym_data+="<td> <font style='font-weight: bolder;' class='w3-text w3-xlarge'><i class='fa fa-plus-square w3-large'></i>&nbsp;&nbsp;"+itr3.next().toString()+"</td></font><td><font style='font-weight: bolder;' class='w3-text w3-xlarge'><i class='fa fa-bed'></i> &nbsp;&nbsp;"+itr2.next().toString()+" days</td></font>";
+            sym_data+="<td> <font style='font-weight: bolder;' class='w3-text w3-xlarge'><i class='fa fa-plus-square w3-large'></i>&nbsp;&nbsp;"+itr3.next().toString().replace("_"," ")+"</td></font><td><font style='font-weight: bolder;' class='w3-text w3-xlarge'><i class='fa fa-bed'></i> &nbsp;&nbsp;"+itr2.next().toString().replace("_"," ")+" days</td></font>";
             sym_data+="</tr>";
-        }
+        } 
+        dis_info.clear();
+        dis_info.addAll(databaseInfo(dis)); 
+        if(dis_info.size()==0)
+        {
+            response.sendRedirect("noinput.html");
+        }   
     }  
+
+%>
+
+
+
+
+
+
+
+
+
+
+<%!
+protected ArrayList<String> databaseInfo(String disease)
+{
+        ArrayList<String> info_data=new ArrayList<String>();
+    disease="'"+disease+"'";
+    String query="SELECT * from diseases where diseases="+disease;
+    Connection con=null;
+    OPENDATABASE OD=new OPENDATABASE();
+    Statement stmt=null;
+    ResultSet rss=null;
+    try
+        {
+    con=OD.getInfoDbConnection();
+
+        info_data.clear();
+        stmt=con.createStatement();
+        rss=stmt.executeQuery(query);
+        
+        while(rss.next())
+            {
+                info_data.add(rss.getString("info"));
+                info_data.add(rss.getString("precaution"));
+                //System.out.println(" info of"+disease+" disease -> "+rss.getString("info"));
+ 
+            }
+        stmt.close();
+        rss.close();
+        OD.DB_CLOSER(con);
+        return (info_data);
+        }
+        catch(Exception e)
+        {
+            System.out.println("Form RESULT_PAGE.jsp->databaseInfo : "+e);
+        }
+        return (info_data);
+}
 
 %>
 
@@ -113,7 +171,29 @@ STORAGE S=new STORAGE();
 
     <div class=" w3-card-4 w3-margin-right w3-light-blue w3-margin-left w3-display-container w3-round-small">
         <img src="../image/report_back.gif" width="100%" height="400" class="w3-round-small w3-opacity">
-        <table class="w3-table w3-display-middle w3-text-white w3-margin-left" align="center"> 
+        <font style="font-weight: bold;" class="w3-text-white w3-large w3-display-topleft w3-margin-top w3-margin-left">Predicted Disease :</font>
+        <font style="font-weight: bolder;" class=" w3-text-white w3-margin-left w3-jumbo w3-display-left"><%out.write(dis); %></font>
+        <div class="w3-text-white w3-container w3-display-right" style="font-weight: bolder;width: 70%;height: auto;" >
+                    <font class="w3-text-white">
+
+                        <%out.write(dis_info.get(0));%>
+
+
+            <!--          <p>
+<b>About Malaria</b><br>
+Malaria is a serious tropical disease spread by mosquitoes. If it isn't diagnosed and treated promptly, it can be fatal.
+A single mosquito bite is all it takes for someone to become infected.
+</p>
+<p>
+<b>What causes malaria?</b><br>
+Malaria is caused by a type of parasite known as Plasmodium. There are many different types of Plasmodia parasites, but only five cause malaria in humans.
+The Plasmodium parasite is mainly spread by female Anopheles mosquitoes, which mainly bite at dusk and at night. When an infected mosquito bites a human, it passes the parasites into the bloodstream.
+Malaria can also be spread through blood transfusions and the sharing of needles, but this is very rare.
+</p> -->
+            </font>
+            </div>
+
+        <!-- <table class="w3-table w3-display-middle w3-text-white w3-margin-left" align="center"> 
             <tr><td>Predicted Disease</td>
                 <td><i class="fa fa-arrow-right"></i><b>Medical name : </b><label style="font-weight: bolder;">H1N1 influenza</label></td>
             </tr>
@@ -129,7 +209,7 @@ STORAGE S=new STORAGE();
                 <tr>
                         <td><i class="fa fa-heartbeat w3-large"></i>  <b>Vaccine : </b>Available(vacinne name)</td>
                     </tr>
-        </table>
+        </table> -->
     </div>
 
     <br>
@@ -178,12 +258,15 @@ STORAGE S=new STORAGE();
         <center>
     <div class="w3-card-4 w3-margin w3-metro-blue w3-round-small w3-metro-blue" style="width: 80%">
             <header class="w3-text-white"><i class="fas fa-hand-holding-heart"></i> <h2>Precations</h2></header><hr style="border-color: white">
-            <table class="w3-table w3-text-white">
+            <!-- <table class="w3-table w3-text-white">
                 <tr><td> <font style="font-weight: bolder;" class="w3-text w3-large"><i class="fa fa-medkit"></i> Stay Home</td></font></tr>
                 <tr><td><font style="font-weight: bolder;" class="w3-text w3-large"><i class="fa fa-medkit"></i> Wash Hand Frequently</td></tr>
                 <tr><td><font style="font-weight: bolder;" class="w3-text w3-large"><i class="fa fa-medkit"></i> Avoid Crowds</td></tr>
                 <tr><td><font style="font-weight: bolder;" class="w3-text w3-large"><i class="fa fa-medkit"></i> Vist Docter</td></tr>
-            </table>
+            </table> -->
+            <font class="w3-text-white w3-large">
+            <% out.write(dis_info.get(1)); %>
+            </font>
     </div>
     <br><br>
     <a href="dashboard.jsp" style="text-decoration: none">
