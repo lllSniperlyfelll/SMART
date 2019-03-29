@@ -8,6 +8,7 @@ import java.util.*;
 public class OPENDATABASE
 {
 Connection com=null;
+Connection info_con=null;
 	public Connection getDbConnection()
 	{
 		try
@@ -22,6 +23,23 @@ Connection com=null;
 			System.out.println(e);
 		}
 		return(com);
+	}
+
+	public Connection getInfoDbConnection()
+	{
+		try
+		{
+		
+		Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+		info_con=DriverManager.getConnection("jdbc:mysql://localhost:3306/smart_info","root","");
+		System.out.println("COnnected to info Database"+info_con.toString());
+		return(info_con);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		return(info_con);
 	}
 	
 	public void DB_CLOSER(Connection com)
