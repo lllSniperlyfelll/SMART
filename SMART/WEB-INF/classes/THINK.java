@@ -127,19 +127,19 @@ public class THINK
 
 				while(sym_cluster_itr.hasNext()  && days_cluster_itr.hasNext())
 				{
+
 					String days_cluster_val=days_cluster_itr.next().toString();
 					String sym_cluster_val=sym_cluster_itr.next().toString().toLowerCase();
 
-					if(sym_cluster_val.equals(isym) && days_cluster_val.equals(ipdays))
+					if(sym_cluster_val.equals(isym))
 					{
 						sym_count++;
+					}
+
+					if(days_cluster_val.equals(ipdays))
+					{
 						days_count++;
 					}
-/*
-					if()
-					{
-
-					}*/
 				}
 				
 				//System.out.println("symptom match count -> "+sym_count);
@@ -155,7 +155,7 @@ public class THINK
 		/*System.out.println("temp_probabilities sent for matching-> "+temp_probabilities);
 		System.out.println("days_temp_probabilities sent for matching-> "+days_temp_probabilities);
 		boolean flag=matchFound(temp_probabilities,days_temp_probabilities);*/
-		
+		//System.out.println("Diseases -> "+feature_disease_val+"  its probablity array -> "+temp_probabilities+" and its days probability array ->"+days_temp_probabilities);
 		 if(arrayIsAllZero(days_temp_probabilities)==false)
 			{
 				if(arrayIsAllZero(temp_probabilities)==false)
