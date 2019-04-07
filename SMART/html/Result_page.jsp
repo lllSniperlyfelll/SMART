@@ -100,7 +100,7 @@ STORAGE S=new STORAGE();
 protected ArrayList<String> databaseInfo(String disease)
 {
         ArrayList<String> info_data=new ArrayList<String>();
-    disease="'"+disease+"'";
+    disease="'"+"malaria"+"'";
     String query="SELECT * from diseases where diseases="+disease;
     Connection con=null;
     OPENDATABASE OD=new OPENDATABASE();

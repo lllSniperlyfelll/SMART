@@ -204,7 +204,9 @@ String login="not";
        <div class="w3-animate-fade w3-display-right  w3-margin-right w3-right w3-xlarge" style="z-index: 10">
           <div style="font-family:cursive;font-weight: bolder;" class="w3-animate-fade w3-jumbo w3-text-white w3-right w3-wide">S M A R T</div><br>
           <h3 class="w3-animate-zoom  w3-text-white w3-right w3-xlarge w3-wide  " style="font-family: cursive;font-weight: bolder;">Simple Medical Assitant Rapid for Treatment</h3>
-          <br><br><br><button class="w-animate-fade  w3-button w3-text-white w3-card-4 w3-right w3-xlarge w3-metro-blue w3-round-large"><strong>ABOUT US</strong></button>
+          <br><br><br>
+          <a href="about.html" style="text-decoration: none;">
+          <button class="w-animate-fade  w3-button w3-text-white w3-card-4 w3-right w3-xlarge w3-metro-blue w3-round-large"><strong>ABOUT US</strong></button></a>
        </div>
 
        
@@ -302,7 +304,7 @@ String login="not";
                             <% 
             if(login.equalsIgnoreCase("not"))
             {
-            out.write("<a href='report.html' style='text-decoration:none;'><div id='slide' class='w3-animate-zoom  w3-text-white w3-card-4 w3-metro-blue w3-display-container ' style='width:75%;height: 300px;text-align: center;'><img src='../image/report_tile_og.jpg' width='100%' height='300px' style='z-index: -1' class='w3-opacity-max'><label class='w3-text-white w3-display-middle' style='font-family: cursive;font-weight: bold'><br><br><br><h1 style='font-weight: bolder;'>Reports</h1><br>Know about Medical Reports<br></label></div></a>");
+            out.write("<a href='report.jsp' style='text-decoration:none;'><div id='slide' class='w3-animate-zoom  w3-text-white w3-card-4 w3-metro-blue w3-display-container ' style='width:75%;height: 300px;text-align: center;'><img src='../image/report_tile_og.jpg' width='100%' height='300px' style='z-index: -1' class='w3-opacity-max'><label class='w3-text-white w3-display-middle' style='font-family: cursive;font-weight: bold'><br><br><br><h1 style='font-weight: bolder;'>Reports</h1><br>Know about Medical Reports<br></label></div></a>");
              }
             else
             {
@@ -314,12 +316,14 @@ String login="not";
 
             </td>
                         <td>
+                            <a href="diet_chart.html" style="text-decoration: none;">
                 <div id="slide" class="w3-animate-zoom  w3-text-white w3-card-4 w3-metro-blue w3-display-container " style="width:80%;height: 300px;text-align: center;">
                    <!--  <div class="w3-animate-zoom card-img-top w3-medium"/> -->
                    
                    <img src="../image/giphy.gif" width="100%" height="300px" style="z-index: -1" class="w3-opacity-max">
                 <label class="w3-text-white w3-display-middle" style="font-family: cursive;font-weight: bold"><h1 style="font-weight: bolder;">Diet Chart</h1><br>Get information about your<br>diet to prevent diseases
                     </label></div>
+                </a>
 
             </td>
         </tr>
